@@ -20,6 +20,6 @@ Arbeitsdokumente. Das ist der Unterschied: Hier steht, worauf wir uns
 stützen. Dort steht, was wir daraus gemacht haben.
 
 Der Handapparat selbst, rund 6,7 GB, liegt auf Klaus' Rechner unter
-`lab-aktuell/Material/Themen`. Er kommt nicht ins Repositorium.
+`Material/Themen`. Er kommt nicht ins Repositorium.
 `QUELLENBASIS.md` erklärt, wie man von einer Registerzeile zur Datei
 kommt.

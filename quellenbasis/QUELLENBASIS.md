@@ -8,8 +8,8 @@ Der Handapparat liegt auf Klaus' Rechner, nicht im Repositorium:
 
 | Etikett im Register | Ordner auf dem Rechner |
 |---|---|
-| `Material/...` | `lab-aktuell/Material/Themen/...` |
-| Werkstatt-Notizen | `lab-aktuell/Publikationen/Werkstatt-Notizen` |
+| `Material/...` | `Material/Themen/...` auf Klaus' Rechner |
+| Werkstatt-Notizen | `Publikationen/Werkstatt-Notizen` auf Klaus' Rechner |
 
 Rund 6,7 GB. Das kommt nicht ins Repositorium und soll auch nicht.
 
