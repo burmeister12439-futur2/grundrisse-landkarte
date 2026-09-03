@@ -85,7 +85,11 @@ table.reg tr:hover td{background:#f6f9fd}
 .decisions .card{border-left:4px solid var(--navy)}
 .liefer{background:var(--soft);border:1px solid #cfe0f2;border-radius:10px;padding:16px 18px;font-size:14.5px}
 .liefer b{color:var(--navy)}
+.verif{font-size:14px;color:var(--grey);background:var(--soft);border:1px solid #cfe0f2;border-radius:10px;padding:12px 16px;margin-top:14px}
 .herkrow{margin:8px 0 2px;font-size:13px;color:var(--grey)}
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.ctit{font-size:13px;font-weight:700;color:var(--navy2);margin:2px 0 6px}
+@media (max-width:820px){.zwei{grid-template-columns:1fr}}
 .pointe{font-size:17px;color:var(--navy);border-left:3px solid var(--navy);padding-left:14px;margin:16px 0 4px}
 h4.gegen{color:var(--navy);font-size:17px;margin:24px 0 4px}
 .herk{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.02em;padding:2px 9px;border-radius:999px;margin:0 5px 0 0;border:1px solid transparent}
@@ -210,10 +214,11 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
       <div class="cap">Grün die Signale zuvor, blau das Feld seit dem Bruch. Rund die Hälfte der Quellen stammt aus den 2010er und 2020er Jahren, die Tiefe reicht bis 1952.</div>
     </div>
   </div>
-  <div class="chartbox" style="margin-top:16px"><h4>Gegenläufige Schwerpunkte: Bibliothek gegen Kumli-Strom</h4><canvas id="cClusters" height="300"></canvas>
+  <div class="chartbox" style="margin-top:16px"><h4>Gegenläufige Schwerpunkte: Bibliothek gegen Kumli-Strom</h4>
+    <div class="zwei"><div><div class="ctit">Bibliothek · 136 Titel</div><canvas id="cClustersBib" height="300"></canvas></div><div><div class="ctit">Kumli-Strom · 262 Titel</div><canvas id="cClustersKum" height="300"></canvas></div></div>
     <div class="cap">Kumli ballt bei Foresight-Methodik, Gesundheit und KI; die Bibliothek bei Zukunftsforschung und Methodik, deutschem Standort und Staat, planetaren Grenzen und Stadt. Die geteilte Leerstelle ist die fragmentierte Resilienz, Feld ④.</div>
   </div>
-  <p style="margin-top:14px"><span class="badge">131 am PDF verifiziert</span><span class="badge">46 Kanon bibliografisch geprüft</span><span class="badge">20 Foresight Community</span><span class="badge">3 institutionelle Serien</span><span class="badge">Verifikation offengelegt</span></p>
+  <p class="verif"><b>Verifikation, offengelegt.</b> Von den 204 Titeln sind 131 am Dokument selbst geprüft und 46 bibliografisch nach Autor, Titel und Jahr. Die übrigen 27 tragen einen schwächeren Vermerk: 11 extern recherchiert, 8 aus dem Kumli-Register übernommen, 4 als Scan mit gesichertem Titel, 3 eigenes Material, 1 Platzhalter. Jede Zeile trägt ihren Stand in der Spalte Verifikationsstand, nachlesbar im Explorer weiter unten.</p>
 </section>
 
 <!-- 5 RASTER -->
@@ -384,11 +389,23 @@ new Chart(document.getElementById('cDecades'),{
 
 // ---- Chart 3: Bib vs Kumli clusters ----
 const bc=PAYLOAD.bibClusters, kc=PAYLOAD.kumliClusters;
-new Chart(document.getElementById('cClusters'),{
- type:'bar',
- data:{labels:bc.map(x=>x[0]),
-   datasets:[{label:'Bibliothek (136)',data:bc.map(x=>x[1]),backgroundColor:NAVY}]},
- options:{indexAxis:'y',plugins:{legend:{position:'top'}},scales:{x:{beginAtZero:true,ticks:{precision:0}}}}});
+// Beide Seiten haben eigene Cluster und verschiedene Groessen, 136 gegen 262.
+// Deshalb zwei Tafeln nebeneinander, jeweils als Anteil in Prozent. Nur so
+// laesst sich vergleichen, wo sich das Gewicht ballt.
+function anteilTafel(id, daten, summe, farbe, name){
+  const pct = daten.map(x => +(100*x[1]/summe).toFixed(1));
+  new Chart(document.getElementById(id),{
+   type:'bar',
+   data:{labels:daten.map(x=>x[0]),
+     datasets:[{label:name,data:pct,backgroundColor:farbe,
+       abs:daten.map(x=>x[1])}]},
+   options:{indexAxis:'y',
+     plugins:{legend:{display:false},
+       tooltip:{callbacks:{label:(c)=>c.parsed.x+' Prozent, '+c.dataset.abs[c.dataIndex]+' Titel'}}},
+     scales:{x:{beginAtZero:true,max:30,title:{display:true,text:'Anteil in Prozent'}}}}});
+}
+anteilTafel('cClustersBib', bc, 136, NAVY,  'Bibliothek');
+anteilTafel('cClustersKum', kc, 262, STEEL, 'Kumli-Strom');
 }catch(e){console.error('charts',e);}
 }
 
