@@ -27,8 +27,8 @@ Wir fangen nicht bei null an, und wir setzen unsere Leitfrage nicht aus
 der Luft. Mit Deutschland neu denken (2018) liegt die Landkarte des
 Möglichen vor, mit Neue Horizonte 2045 (2024) der Kompass zum
 Wünschbaren. Beide waren auf der Höhe ihrer Zeit, beide beschreiben
-Entwicklungen, keine beschreibt Brüche, weil beide aus ihrer eigenen
-Gegenwart heraus gedacht sind. Genau aus der Arbeit an diesen beiden
+vor allem Entwicklungen. Brüche kommen darin vor, aber am
+Rand, weil beide aus ihrer eigenen Gegenwart heraus gedacht sind. Genau aus der Arbeit an diesen beiden
 Studien ist die Frage gewachsen, die GRUNDRISSE trägt. Sie ist ein
 Ergebnis unserer eigenen Vorarbeit, keine Setzung, die wir dem Material
 überstülpen. Das ist wichtig für die Debatte am Samstag: Wenn wir unsere
