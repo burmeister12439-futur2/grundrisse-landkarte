@@ -69,7 +69,8 @@ mehr. Vier Pfeiler haben ihn getragen, und alle vier geraten
 gleichzeitig an ihre Grenze. Die Natur war Ressource, die Technik war
 Werkzeug, das Wachstum war das Versprechen, das alle Konflikte
 befriedete, und die Welt war im Zweifel groß genug. Auf diesem Grund
-steht alles, was wir Wohlstand und Sozialstaat nennen. Anders als
+steht alles, was wir Wohlstand und Sozialstaat nennen. Die vier Pfeiler
+sind unsere analytische Verdichtung, kein belegter Kanon. Anders als
 transformative Entwürfe eines neuen Gesellschaftsvertrags setzen wir die
 Antwort nicht voraus. GRUNDRISSE fragt, was an die Stelle des alten
 Vertrags treten kann.
@@ -111,13 +112,15 @@ gestritten werden muss.
 
 **1.3 Die Leitfrage: die Neubestimmung des Menschen**
 
-Aus der Diagnose folgt die Leitfrage. Das eigentlich Neue an GRUNDRISSE
-ist nicht ein weiterer Trend, sondern eine Neubestimmung des Menschen.
-Der Mensch rückt aus der Mitte, und Selbstbegrenzung ist die Folge,
-nicht als Verzicht verordnet, sondern als Einsicht in ein neues
-Verhältnis von Mensch, Technik und Natur auf einem endlichen Planeten.
-Das ist die Frage, an der sich alle Spotlights, alle Faktoren und am
-Ende alle Vollszenarien messen lassen müssen.
+Aus dieser Diagnose wählen wir als Leitfrage die Neubestimmung des
+Menschen. Das ist eine Setzung, keine zwingende Ableitung. Das eigentlich
+Neue an GRUNDRISSE ist nicht ein weiterer Trend, sondern diese
+Neubestimmung. Der Mensch rückt aus der Mitte, und Selbstbegrenzung wäre
+die Folge, nicht als Verzicht verordnet, sondern als Einsicht in ein
+neues Verhältnis von Mensch, Technik und Natur auf einem endlichen
+Planeten. Ob sie trägt, ist offen. Das ist die Frage, an der sich alle
+Spotlights, alle Faktoren und am Ende alle Vollszenarien messen lassen
+müssen.
 
 Wir stehen mit dieser Frage nicht allein, und das ist ein Vorzug, kein
 Mangel. Hartmut Rosas Soziologie der Weltbeziehung liefert die
