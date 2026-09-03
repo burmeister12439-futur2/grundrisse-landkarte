@@ -22,10 +22,10 @@ Rund 6,7 GB. Das kommt nicht ins Repositorium und soll auch nicht.
 
 | Zuordnung | Zeilen | Bedeutung |
 |---|---|---|
-| geprüft | 11 | von Hand kontrolliert |
+| geprüft | 13 | von Hand kontrolliert |
 | sicher | 80 | automatisch, hohe Übereinstimmung |
 | wahrscheinlich | 43 | automatisch, mittlere Übereinstimmung, ungeprüft |
-| offen | 2 | keine belastbare Zuordnung |
+| offen | 0 | keine |
 
 Zusammen 136 Zeilen mit Herkunft `Bibliothek`. Die übrigen 68 Zeilen
 stammen aus Welt-Kanon, Signalen, Kumli-Stream und eigenen Arbeiten und
@@ -33,12 +33,22 @@ zeigen nicht auf den Handapparat.
 
 v14 bleibt unverändert liegen. v15 ergänzt, es ersetzt nichts.
 
-## Die zwei offenen Fälle
+## Keine offenen Fälle
 
-| Nr | Titel | Fundort | Problem |
-|---|---|---|---|
-| 4 | Zukunftsforschung in Deutschland, historischer Abriss | Material/ZF/2024 | drei Dateien im Ordner, keine passt eindeutig |
-| 133 | Megatrend-Report | Material/ZF/2021 | neun Dateien im Ordner, mehrere kommen infrage |
+Zwei Zeilen waren zunächst offen. Beide ließen sich über die Spalte
+`Herausgeber / Institution` auflösen, die der automatische Abgleich nicht
+ausgewertet hatte.
+
+| Nr | Herausgeber im Register | Datei |
+|---|---|---|
+| 4 | K. Steinmüller, Z. f. Zukunftsforschung, 2012 | `ZF/2024/Steinmüller-ZF.pdf` |
+| 133 | Zukunftsinstitut (Horx), 2021 | `ZF/2021/Zukunftsinstitut-2021.pdf` |
+
+Nr. 4 wird zusätzlich durch `foresight_D/foresight Master/2026-08-18_Grundrisse-der-Zukunft_v1.html`
+gestützt, dort steht: Startfassung nach Steinmüller, Zukunftsforschung in Deutschland.
+
+Lehre daraus: Ein Titelabgleich allein reicht nicht. Herausgeber und Jahr
+gehören in jeden Abgleich.
 
 ## Regel ab jetzt
 
