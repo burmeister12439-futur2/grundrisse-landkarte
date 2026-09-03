@@ -15,7 +15,7 @@ Rund 6,7 GB. Das kommt nicht ins Repositorium und soll auch nicht.
 
 ## Was das Register jetzt leistet
 
-`2026-09-03_..._v15.xlsx` hat zwei neue Spalten gegenüber v14:
+`register/2026-09-03_..._v15.xlsx` hat zwei neue Spalten gegenüber v14:
 
 - **Datei (Material/Themen)**: der Pfad relativ zu `Material/Themen`.
 - **Zuordnung**: wie sicher die Zuordnung ist.
@@ -79,7 +79,7 @@ deshalb an drei Stellen, die ohnehin passieren.
 ### 1 · Tiefe wächst durch Benutzung
 
 Wer eine Aussage prüft und dafür eine Quelle im Volltext braucht, nennt
-die Registernummer. Der Textauszug wird dann in `quellen/` abgelegt und
+die Registernummer. Der Textauszug wird dann in `auszuege/` abgelegt und
 bleibt dort. Beim nächsten Mal ist er schon da.
 
 Die Basis wächst also genau dort, wo tatsächlich argumentiert wird, und
@@ -97,7 +97,7 @@ niemand muss daran denken.
 
 ### 3 · Der Prüfer erzwingt die Form
 
-`register/pruefe_quellenbasis.py` prüft zwei harte Regeln und meldet den
+`quellenbasis/pruefe.py` prüft zwei harte Regeln und meldet den
 Stand:
 
 - Jede Zeile mit Verifikationsstand `verifiziert` hat eine Datei oder
@@ -106,7 +106,7 @@ Stand:
   Register. Sonst Abbruch.
 
 Dazu gibt er aus, wie viele Zeilen es sind, wie viele eine Datei haben,
-wie viele Auszüge in `quellen/` liegen und wie alt die jüngste
+wie viele Auszüge in `auszuege/` liegen und wie alt die jüngste
 Registerfassung ist. Ist sie älter als 120 Tage, weist er darauf hin.
 Das ist keine Fehlermeldung, sondern ein Hinweis, dass ein Quartal ohne
 Zuwachs vergangen ist.

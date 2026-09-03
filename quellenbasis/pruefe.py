@@ -2,7 +2,7 @@
 """Prueft die Quellenbasis der GRUNDRISSE und meldet ihren Stand.
 
 Zwei harte Regeln, sonst nur Bericht. Aufruf aus dem Wurzelverzeichnis:
-    python3 register/pruefe_quellenbasis.py
+    python3 quellenbasis/pruefe.py
 """
 import os, re, sys, glob, datetime
 from openpyxl import load_workbook
@@ -11,7 +11,7 @@ WURZEL = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 fehler = []
 
 def neuestes_register():
-    d = sorted(glob.glob(os.path.join(WURZEL, "register", "*_Grundrisse_Foresight-Register_2045_v*.xlsx")))
+    d = sorted(glob.glob(os.path.join(WURZEL, "quellenbasis", "register", "*_Grundrisse_Foresight-Register_2045_v*.xlsx")))
     if not d:
         print("FEHLER: kein Register gefunden"); sys.exit(1)
     def num(p):
@@ -43,17 +43,34 @@ for r in range(2, ws.max_row + 1):
         fehler.append("Zeile %s '%s' gilt als verifiziert, hat aber weder Datei noch Link"
                       % (nr, str(ws.cell(row=r, column=iTitel).value)[:60]))
 
-# Regel 2: zitierte Registernummern muessen existieren
+# Regel 2 und 3: zitierte Registernummern
+# Nur Herkunftszeilen auswerten, nicht den eingebetteten Registerdatensatz.
+iGuete = sp("Güte")
+guete = {}
+for r in range(2, ws.max_row + 1):
+    nr = ws.cell(row=r, column=iNr).value
+    if nr in (None, ""): continue
+    guete[str(nr).strip()] = str(ws.cell(row=r, column=iGuete).value or "?") if iGuete else "?"
+
+BELEGFAEHIG = ("A", "B", "C", "F")
 zitiert = set()
 for html in glob.glob(os.path.join(WURZEL, "*.html")):
     with open(html, encoding="utf-8", errors="replace") as fh:
-        for m in re.finditer(r"Nr\.?\s*(\d{1,3})", fh.read()):
+        text = fh.read()
+    for zeile in re.findall(r'class="herkrow">(.*?)</div>', text, re.S):
+        klar = re.sub(r"<[^>]+>", " ", zeile)
+        for m in re.finditer(r"Nr\.?\s*(\d{1,3})(?:\s+und\s+(\d{1,3}))?", klar):
             zitiert.add(m.group(1))
+            if m.group(2): zitiert.add(m.group(2))
 for z in sorted(zitiert, key=int):
     if z not in nummern:
         fehler.append("Registernummer %s wird auf der Seite zitiert, steht aber nicht im Register" % z)
+        continue
+    g = guete.get(z, "?")
+    if g not in BELEGFAEHIG:
+        fehler.append("Nr %s hat Guete %s und darf nichts belegen. Siehe QUELLENSTANDARD.md" % (z, g))
 
-ausz = len([f for f in glob.glob(os.path.join(WURZEL, "quellen", "*")) if os.path.isfile(f)])
+ausz = len([f for f in glob.glob(os.path.join(WURZEL, "quellenbasis", "auszuege", "*")) if os.path.isfile(f)])
 m = re.search(r"(\d{4})-(\d{2})-(\d{2})", os.path.basename(pfad))
 alter = None
 if m:
@@ -64,7 +81,7 @@ print("  Register:            %s" % os.path.basename(pfad))
 print("  Zeilen:              %d" % zeilen)
 print("  mit Datei oder Link: %d" % mit_datei)
 print("  zitiert auf Seite:   %d" % len(zitiert))
-print("  Auszuege in quellen: %d" % ausz)
+print("  Auszuege:             %d" % ausz)
 if alter is not None:
     print("  Registerfassung:     %d Tage alt" % alter)
     if alter > 120:

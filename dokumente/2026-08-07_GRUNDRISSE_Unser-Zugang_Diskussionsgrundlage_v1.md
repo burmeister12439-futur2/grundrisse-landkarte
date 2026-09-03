@@ -98,7 +98,7 @@ Wir stehen näher bei der zweiten Lesart, ohne ein Ende vorauszusetzen.
 Uns geht es nicht darum, etwas Eigenes zu behaupten. Wir denken unsere
 eigenen Szenarien von 2018 und 2024 weiter, unter Bedingungen, die es
 damals so nicht gab. (Register v14: Nr. 169 Beck, Nr. 38 WBGU, Nr. 183
-Raworth, Nr. 203 Mazzucato, Nr. 20 Club of Rome, Nr. 181 und 119
+Raworth, Nr. 203 Mazzucato, Nr. 164 Club of Rome, Nr. 181 und 119
 Planetary Boundaries, Nr. 182 Piketty, Nr. 187 Zuboff, Nr. 200 Rosa. Die
 Aufteilung in zwei Lesarten und unsere Verortung darin sind unsere
 Deutung, kein Quellenbefund.)
