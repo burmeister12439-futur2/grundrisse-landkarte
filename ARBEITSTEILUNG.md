@@ -150,9 +150,11 @@ gefunden, ohne dass jemand ihn geschickt hat. Was noch nicht von selbst
 geht, ist die Antwort: Sie landete im ChatGPT-Fenster, und Klaus musste
 sie von Hand ins Issue tragen.
 
-**Regel:** Jede inhaltliche Antwort wird in das Issue geschrieben, das
-die Frage enthält. Die Antwort im Chatfenster ist höchstens ein Hinweis
-darauf, nie der Inhalt selbst.
+**Verbindliche Regel:** Wenn eine Frage aus einem GitHub-Issue kommt oder eine
+Antwort ein Repositorium betrifft, schreibt das antwortende System die
+inhaltliche Antwort mit dem GitHub-Connector in das zugehörige Issue. Im Chat
+steht danach nur der Satz, dass dort geantwortet wurde. Eine inhaltliche Antwort
+auf etwas, das ins Issue gehört, steht niemals im Chat.
 
 Das gilt für HAL und für Claude gleichermaßen. Klaus transportiert
 nichts. Wenn er etwas transportieren muss, ist das ein Befund über den
