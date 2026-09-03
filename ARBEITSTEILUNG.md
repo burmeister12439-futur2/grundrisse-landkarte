@@ -171,10 +171,69 @@ Das gilt für HAL und für Claude gleichermaßen. Klaus transportiert
 nichts. Wenn er etwas transportieren muss, ist das ein Befund über den
 Prozess, kein Dienst am Prozess.
 
-## Was der Lieferschein unterscheiden muss
+## Der Lieferschein, vier Zeilen
 
-- `geprüft` heißt: am Text im Repositorium geprüft.
-- `Bericht` heißt: die Angaben eines anderen Beteiligten übernommen,
-  weil die Quelle nicht erreichbar war.
+Jeder Arbeitsschritt endet mit vier Zeilen. Die vierte ist am
+3. September 2026 dazugekommen und ist die wichtigste.
+
+**Geprüft.** Am Text im Repositorium nachgesehen. Nicht: für richtig
+gehalten.
+
+**Unsicher.** Angesehen, aber nicht sicher beurteilbar.
+
+**Zu entscheiden.** Was Klaus entscheiden muss, damit es weitergeht.
+
+**Nicht angesehen.** Was bei diesem Schritt bewusst außerhalb der Prüfung
+blieb. Meistens: der Bestand. Wer eine Stelle ändert, prüft die Stelle
+und übersieht alles, was schon dastand.
+
+### Warum die vierte Zeile
+
+`Unsicher` meint das, wovon man weiß, dass man es nicht sicher weiß.
+`Nicht angesehen` meint die gefährlichere Sorte: das, wovon man gar nicht
+weiß, ob es stimmt, weil man nicht hingesehen hat.
+
+Am 3. September 2026 sind an einem Tag sechs Fehler dieser Sorte
+aufgefallen, keiner davon durch den, der ihn gemacht hat:
+
+- Ein Diagramm zeichnete nur eine von zwei Reihen. Der Code holte die
+  zweite und benutzte sie nie. Wochenlang unbemerkt.
+- Fünf Elemente sahen aus wie Knöpfe und waren Text ohne Funktion.
+- Eine Zahlenreihe mischte zwei verschiedene Spalten zu einer Summe, die
+  nichts bedeutet.
+- Der Zugangstext belegte den Club-of-Rome-Bericht von 1972 mit einem
+  Zeitungsinterview von 2022.
+- Eine Regel wurde als maschinell erzwungen beschrieben, obwohl der
+  Prüfer sie nur halb prüft.
+- Die Seite, die das Kern-Team kennt, lag einen ganzen Tag lang in einem
+  anderen Repositorium als die Arbeit an ihr.
+
+Das Muster ist immer dasselbe: Es wird die eigene Behauptung geprüft und
+nicht die Sache. Eine Suche nach `204` bestätigt, dass 204 dasteht. Sie
+findet nicht die falsche 200 daneben.
+
+### Die Frage, die eine Prüfung zur Prüfung macht
+
+Eine Prüfung muss eine Frage stellen, deren Antwort den Prüfenden
+widerlegen kann. Nicht `steht die Zahl da`, sondern `welche Zahlen stehen
+da, und stimmt jede`. Nicht `ist mein Absatz richtig`, sondern `was steht
+sonst noch in diesem Abschnitt`.
+
+### Was daraus für die Zusammenarbeit folgt
+
+Alle sechs Fehler wurden von jemandem gefunden, der sie nicht gemacht
+hat. Das ist kein Zufall. Wer etwas geschrieben hat, sieht beim Nachlesen
+seine Absicht. Wer es nicht geschrieben hat, sieht, was dasteht.
+
+Deshalb ist die Gegenprüfung durch den jeweils anderen kein
+Höflichkeitsritual, sondern der einzige Mechanismus, der diese Fehlerart
+überhaupt findet. Und deshalb ist die Lektüre durch Menschen, die nicht
+mitgearbeitet haben, durch keine Prüfung zwischen HAL und Claude zu
+ersetzen.
+
+### Was sonst noch gilt
+
+- `Bericht` statt `geprüft`, wenn die Angaben eines anderen Beteiligten
+  übernommen wurden, weil die Quelle nicht erreichbar war.
 - Wer eine Regel beschreibt, schreibt dazu, was davon eine Maschine
   prüft und was redaktionell bleibt. Absicht ist kein Ist-Zustand.
