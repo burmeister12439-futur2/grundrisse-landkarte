@@ -35,8 +35,10 @@ Ergebnis unserer eigenen Vorarbeit, keine Setzung, die wir dem Material
 Frage an fremde Studien halten, prüfen wir sie, wir bestätigen sie nicht
 bloß.
 
-Dass die Bedingungen von 2018 und 2024 nicht mehr gelten, zeigen fünf
-Strukturbrüche, die das Argumentationspapier ausarbeitet:
+Fünf Strukturbrüche, die das Argumentationspapier ausarbeitet, haben sich
+seither verdichtet und miteinander verkoppelt. Zwei davon waren 2024 noch
+gar nicht im Blick. Deshalb reichen die Bedingungen von 2018 und 2024 für
+den heutigen und den kommenden Bedingungsraum nicht mehr aus:
 
 -   Geopolitischer Regimewechsel. Krieg in Europa, Chinas
     Hegemonialanspruch, Erosion der regelbasierten Ordnung. Geopolitik
@@ -56,15 +58,28 @@ Strukturbrüche, die das Argumentationspapier ausarbeitet:
     arbeitet, operiert in der politischen Ökonomie ihrer Anbieter. Das
     verändert das Verhältnis von Methode und Gegenstand.
 
-**1.2 Der Grundvertrag der Moderne ist abgelaufen**
+Was 2024 noch als Randbedingung behandelt werden konnte, ist heute der
+Raum selbst.
 
-Hinter den fünf Brüchen steht eine Diagnose, die tiefer reicht als jede
-einzelne Krise: Der Grundvertrag der Moderne ist abgelaufen. Vier
-Pfeiler haben ihn getragen, und alle vier tragen nicht mehr,
-gleichzeitig. Die Natur war Ressource, die Technik war Werkzeug, das
-Wachstum war das Versprechen, das alle Konflikte befriedete, und die
-Welt war im Zweifel groß genug. Auf diesem Grund steht alles, was wir
-Wohlstand und Sozialstaat nennen.
+**1.2 Unsere These: Der Grundvertrag der Moderne trägt nicht mehr**
+
+Hinter den fünf Brüchen steht eine These, die tiefer reicht als jede
+einzelne Krise: Der Grundvertrag der industriellen Moderne trägt nicht
+mehr. Vier Pfeiler haben ihn getragen, und alle vier geraten
+gleichzeitig an ihre Grenze. Die Natur war Ressource, die Technik war
+Werkzeug, das Wachstum war das Versprechen, das alle Konflikte
+befriedete, und die Welt war im Zweifel groß genug. Auf diesem Grund
+steht alles, was wir Wohlstand und Sozialstaat nennen. Anders als
+transformative Entwürfe eines neuen Gesellschaftsvertrags setzen wir die
+Antwort nicht voraus. GRUNDRISSE fragt, was an die Stelle des alten
+Vertrags treten kann.
+
+Die stärkste Gegenstimme teilt unsere Voraussetzung. Ulrich Beck hat
+1986 beschrieben, wie die Moderne ihre eigenen Risiken erzeugt. Er
+schloss daraus, dass sie sich auf sich selbst anwenden und umbauen kann.
+Wir widersprechen ihm nicht aus besserem Wissen, sondern von einem
+späteren Ort aus. Dass Beck hier als Gegenstimme steht, ist unsere
+Lesart, kein Quellenbefund.
 
 Das ist kein Endzeit-Ton, sondern eine nüchterne Bestandsaufnahme. Wir
 renovieren nicht das Gebäude, wir tarieren das Fundament neu. Deshalb
