@@ -74,12 +74,33 @@ transformative Entwürfe eines neuen Gesellschaftsvertrags setzen wir die
 Antwort nicht voraus. GRUNDRISSE fragt, was an die Stelle des alten
 Vertrags treten kann.
 
-Die stärkste Gegenstimme teilt unsere Voraussetzung. Ulrich Beck hat
-1986 beschrieben, wie die Moderne ihre eigenen Risiken erzeugt. Er
-schloss daraus, dass sie sich auf sich selbst anwenden und umbauen kann.
-Wir widersprechen ihm nicht aus besserem Wissen, sondern von einem
-späteren Ort aus. Dass Beck hier als Gegenstimme steht, ist unsere
-Lesart, kein Quellenbefund.
+Unsere These steht in einem Feld, in dem zwei Lesarten
+nebeneinanderliegen.
+
+Die Moderne kann sich reparieren. Ulrich Beck hat 1986 beschrieben, wie
+die Moderne ihre eigenen Risiken erzeugt. Er schloss daraus, dass sie
+sich auf sich selbst anwenden und umbauen kann. Der WBGU hat 2011 daraus
+einen neuen Gesellschaftsvertrag entworfen. Kate Raworth hat 2017
+gezeigt, wie Wirtschaften innerhalb der Grenzen aussehen könnte, Mariana
+Mazzucato 2021, wie ein Staat gerichtet handeln kann. Diese Linie ist
+stark, und sie ist bis heute die verbreitete.
+
+Die Risse gehen tiefer. Der Club of Rome hat 1972 den endlichen Planeten
+benannt. Das Stockholm Resilience Centre hat daraus messbare Leitplanken
+gemacht; sieben von neun sind überschritten. Thomas Piketty zeigt
+Ungleichheit als Strukturmerkmal, nicht als Betriebsunfall. Shoshana
+Zuboff zeigt, dass die Machtfrage der Plattform-Ära offen ist. Hartmut
+Rosa beschreibt die moderne Weltbeziehung als Verfügbarmachung, die an
+ihre Grenze kommt.
+
+Wir stehen näher bei der zweiten Lesart, ohne ein Ende vorauszusetzen.
+Uns geht es nicht darum, etwas Eigenes zu behaupten. Wir denken unsere
+eigenen Szenarien von 2018 und 2024 weiter, unter Bedingungen, die es
+damals so nicht gab. (Register v14: Nr. 169 Beck, Nr. 38 WBGU, Nr. 183
+Raworth, Nr. 203 Mazzucato, Nr. 20 Club of Rome, Nr. 181 und 119
+Planetary Boundaries, Nr. 182 Piketty, Nr. 187 Zuboff, Nr. 200 Rosa. Die
+Aufteilung in zwei Lesarten und unsere Verortung darin sind unsere
+Deutung, kein Quellenbefund.)
 
 Das ist kein Endzeit-Ton, sondern eine nüchterne Bestandsaufnahme. Wir
 renovieren nicht das Gebäude, wir tarieren das Fundament neu. Deshalb
