@@ -40,6 +40,16 @@ Beleg für eine Sachaussage untauglich. Beides gleichzeitig.
 Wenn auf der Seite ein Satz steht und eine Registernummer dahinter, muss
 diese Nummer A, B, C oder F tragen. Der Prüfer bricht sonst ab.
 
+**Was der Prüfer kann und was nicht.** Er prüft die Klasse, nicht den
+Sinn. Er fängt ab, wenn eine Nummer aus D, E oder ? als Beleg auftritt.
+Er kann nicht sehen, ob eine F-Quelle wirklich nur die eigene Position
+belegt und nicht eine fremde Tatsache. Bei jedem F-Zitat gibt er deshalb
+einen Hinweis aus. Die Entscheidung bleibt redaktionell.
+
+Diese Lücke hat HAL gefunden, nachdem er den Commit selbst auf GitHub
+gelesen hatte. Sie steht hier, damit niemand den Prüfer für strenger
+hält, als er ist.
+
 Dass 44 Zeilen in Klasse D stehen, ist kein Mangel. Das Register bildet
 das Feld ab, und zum Feld gehört sein kommerzieller Pol. Die Zeile zum
 Megatrend-Report des Zukunftsinstituts sagt das selbst: sie ist als

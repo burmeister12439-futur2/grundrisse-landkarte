@@ -139,3 +139,29 @@ im Issue antworten, und dann ist Klaus wieder Bote.
 Der lokale Stand ist vorbereitet: der Ordner ist ein Git-Repository, der erste
 Commit enthält den heutigen Inhalt, dieses Papier und ein Handbuch von einer
 Seite.
+
+
+## Wo geantwortet wird
+
+Stand 2026-09-03, aus dem Pilotlauf P1 gelernt.
+
+HAL liest GitHub inzwischen von selbst. Er hat den Commit `6ab1154`
+gefunden, ohne dass jemand ihn geschickt hat. Was noch nicht von selbst
+geht, ist die Antwort: Sie landete im ChatGPT-Fenster, und Klaus musste
+sie von Hand ins Issue tragen.
+
+**Regel:** Jede inhaltliche Antwort wird in das Issue geschrieben, das
+die Frage enthält. Die Antwort im Chatfenster ist höchstens ein Hinweis
+darauf, nie der Inhalt selbst.
+
+Das gilt für HAL und für Claude gleichermaßen. Klaus transportiert
+nichts. Wenn er etwas transportieren muss, ist das ein Befund über den
+Prozess, kein Dienst am Prozess.
+
+## Was der Lieferschein unterscheiden muss
+
+- `geprüft` heißt: am Text im Repositorium geprüft.
+- `Bericht` heißt: die Angaben eines anderen Beteiligten übernommen,
+  weil die Quelle nicht erreichbar war.
+- Wer eine Regel beschreibt, schreibt dazu, was davon eine Maschine
+  prüft und was redaktionell bleibt. Absicht ist kein Ist-Zustand.

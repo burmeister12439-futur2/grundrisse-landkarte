@@ -9,6 +9,7 @@ from openpyxl import load_workbook
 
 WURZEL = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 fehler = []
+hinweise = []
 
 def neuestes_register():
     d = sorted(glob.glob(os.path.join(WURZEL, "quellenbasis", "register", "*_Grundrisse_Foresight-Register_2045_v*.xlsx")))
@@ -69,6 +70,9 @@ for z in sorted(zitiert, key=int):
     g = guete.get(z, "?")
     if g not in BELEGFAEHIG:
         fehler.append("Nr %s hat Guete %s und darf nichts belegen. Siehe QUELLENSTANDARD.md" % (z, g))
+    elif g == "F":
+        hinweise.append("Nr %s ist eigenes Werk (F). Der Pruefer kann nicht sehen, ob die Aussage "
+                        "von der eigenen Position handelt. Das bleibt redaktionelle Pruefung." % z)
 
 ausz = len([f for f in glob.glob(os.path.join(WURZEL, "quellenbasis", "auszuege", "*")) if os.path.isfile(f)])
 m = re.search(r"(\d{4})-(\d{2})-(\d{2})", os.path.basename(pfad))
@@ -86,6 +90,10 @@ if alter is not None:
     print("  Registerfassung:     %d Tage alt" % alter)
     if alter > 120:
         print("  HINWEIS: seit mehr als einem Quartal kein Zuwachs. Quartalslauf pruefen.")
+
+if hinweise:
+    print("\nHINWEISE (%d), keine Fehler:" % len(hinweise))
+    for h in hinweise: print("  -", h)
 
 if fehler:
     print("\nFEHLER (%d):" % len(fehler))
