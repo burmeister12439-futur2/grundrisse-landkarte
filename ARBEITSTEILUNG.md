@@ -129,16 +129,27 @@ brechen kann.
 
 ---
 
-## Was Klaus tun muss, damit das anläuft
+## Wo alles liegt
 
-Ein privates Repository `grundrisse-2045` unter `burmeister12439-futur2` anlegen
-und den vorbereiteten lokalen Stand hochladen. Dazu ein fine-grained Token nur
-für dieses Repository, abgelegt wie bei der Webseite. Ohne Token kann kein Modell
-im Issue antworten, und dann ist Klaus wieder Bote.
+Ein Repositorium: `burmeister12439-futur2/grundrisse-landkarte`, seit dem
+3. September 2026 öffentlich. Vorher hieß es `grundrisse-2045` und war privat,
+und daneben lag ein zweites, öffentliches Repositorium mit einer veralteten
+Fassung der Seite. Beides ist zusammengeführt. Das alte öffentliche liegt als
+`grundrisse-landkarte-alt` still.
 
-Der lokale Stand ist vorbereitet: der Ordner ist ein Git-Repository, der erste
-Commit enthält den heutigen Inhalt, dieses Papier und ein Handbuch von einer
-Seite.
+Die Team-Seite läuft über GitHub Pages aus `main`:
+
+    https://burmeister12439-futur2.github.io/grundrisse-landkarte/
+    https://burmeister12439-futur2.github.io/grundrisse-landkarte/fragen.html
+
+Der Zugang läuft über einen fine-grained Token nur für dieses Repositorium,
+abgelegt in `.claude-local/gh_token` und von `.gitignore` ausgeschlossen. Der
+Tokenwert wird nie ausgegeben und nie in eine Datei geschrieben. Ohne Token kann
+kein Modell im Issue antworten, und dann ist Klaus wieder Bote.
+
+**Weil das Repositorium öffentlich ist:** Alles, was hier hineinkommt, ist von
+außen lesbar. Der Handapparat bleibt draußen, Zugangsdaten sowieso. Wer eine
+Datei hinzufügt, prüft vorher, ob sie öffentlich stehen darf.
 
 
 ## Wo geantwortet wird

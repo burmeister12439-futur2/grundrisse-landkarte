@@ -55,6 +55,14 @@ methodisch-empirische Quelle, an der wir uns messen. Der Kumli-Strom ist
 darin ein Strom unter mehreren. Die Auswertung läuft auf einem
 offengelegten 8-Kriterien-Raster.
 
+## Die Seite im Netz
+
+    https://burmeister12439-futur2.github.io/grundrisse-landkarte/
+    https://burmeister12439-futur2.github.io/grundrisse-landkarte/fragen.html
+
+`fragen.html` ist die Einstiegsseite fürs Kern-Team: vier Lesefragen und der
+Weg in die Diskussionsgrundlage. Sie wird verschickt, nicht die Hauptseite.
+
 ## Vor jeder Änderung
 
     python3 quellenbasis/pruefe.py
