@@ -68,3 +68,51 @@ sagt dann genau, welche Datei gemeint ist. Sie wird als Textauszug in
 Prüft jemand eine Aussage gegen eine Quelle, die nicht im Repositorium
 liegt, ist das Ergebnis ein Bericht und keine Prüfung. Das gehört so in
 den Lieferschein.
+
+---
+
+## Wie die Quellenbasis wächst
+
+Wachstum darf keine Zusatzaufgabe sein, sonst unterbleibt es. Es hängt
+deshalb an drei Stellen, die ohnehin passieren.
+
+### 1 · Tiefe wächst durch Benutzung
+
+Wer eine Aussage prüft und dafür eine Quelle im Volltext braucht, nennt
+die Registernummer. Der Textauszug wird dann in `quellen/` abgelegt und
+bleibt dort. Beim nächsten Mal ist er schon da.
+
+Die Basis wächst also genau dort, wo tatsächlich argumentiert wird, und
+nicht auf Vorrat.
+
+### 2 · Breite wächst durch den Quartalslauf
+
+Alle drei Monate läuft die Auswertung des Kumli-Stroms. Sie legt ab jetzt
+eine Kandidatenliste im Ordner `Kumli/` an: neue Studien, die noch nicht
+im Register stehen, mit Titel, Herausgeber, Jahr und Link.
+
+Aus der Liste werden Registerzeilen, wenn sie zu einem Grundriss gehören.
+Nicht alles muss aufgenommen werden. Aber der Zufluss reißt nicht ab, und
+niemand muss daran denken.
+
+### 3 · Der Prüfer erzwingt die Form
+
+`register/pruefe_quellenbasis.py` prüft zwei harte Regeln und meldet den
+Stand:
+
+- Jede Zeile mit Verifikationsstand `verifiziert` hat eine Datei oder
+  einen Link. Sonst Abbruch.
+- Jede Registernummer, die auf der Seite zitiert wird, existiert im
+  Register. Sonst Abbruch.
+
+Dazu gibt er aus, wie viele Zeilen es sind, wie viele eine Datei haben,
+wie viele Auszüge in `quellen/` liegen und wie alt die jüngste
+Registerfassung ist. Ist sie älter als 120 Tage, weist er darauf hin.
+Das ist keine Fehlermeldung, sondern ein Hinweis, dass ein Quartal ohne
+Zuwachs vergangen ist.
+
+### Was ausdrücklich nicht gilt
+
+Es gibt keine Zielzahl und keine Quote. Eine Quote erzeugt Zeilen, keine
+Quellen. Gemessen wird, ob jede benutzte Aussage einen Beleg hat, nicht
+wie viele Belege herumliegen.
