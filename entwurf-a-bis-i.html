@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GRUNDRISSE 2045 · Entwurf nach der Gliederung A bis I</title>
+<style>
+:root{
+  --navy:#1F3864; --navy2:#2E4C7E; --steel:#4E79B0; --grey:#595959; --line:#D9D9D9;
+  --soft:#EAF1F8; --paper:#ffffff; --ink:#222; --green:#6FA36F;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Segoe UI",Calibri,system-ui,Arial,sans-serif;color:var(--ink);background:#fbfcfe;line-height:1.62;font-size:16px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+header.top{background:linear-gradient(160deg,#1F3864,#2E4C7E);color:#fff;padding:46px 0 34px}
+header.top h1{margin:0;font-size:40px;letter-spacing:.5px;font-weight:700}
+header.top .sub{font-size:20px;color:#dfe7f4;margin-top:6px}
+header.top .meta{font-size:14px;color:#b9c6de;margin-top:14px}
+header.top .lead{margin-top:20px;font-style:italic;color:#eaf1fb;max-width:820px;font-size:16.5px}
+nav.anchors{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(4px);border-bottom:1px solid var(--line)}
+nav.anchors .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:2px 2px;padding:7px 22px}
+nav.anchors a{display:inline-flex;align-items:baseline;gap:6px;white-space:nowrap;font-size:13px;color:var(--navy);text-decoration:none;padding:5px 9px;border-radius:6px;line-height:1.35;border:1px solid transparent;transition:background .12s,border-color .12s}
+nav.anchors a .n{color:var(--steel);font-variant-numeric:tabular-nums;font-size:11.5px;font-weight:700}
+nav.anchors a:hover{background:var(--soft);border-color:#dbe5f1}
+nav.anchors a.hier{background:var(--navy);border-color:var(--navy);color:#fff}
+nav.anchors a.hier .n{color:#9fb6da}
+@media(max-width:820px){nav.anchors .wrap{padding:6px 14px;gap:1px}nav.anchors a{font-size:12px;padding:4px 7px}}
+section{padding:34px 0;border-bottom:1px solid #eef1f5}
+h2{color:var(--navy);font-size:26px;margin:0 0 4px;font-weight:700}
+h2 .num{color:var(--steel);font-weight:700;margin-right:8px}
+h3{color:var(--navy);font-size:19px;margin:26px 0 6px}
+p{margin:10px 0}
+.kicker{color:var(--steel);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:1fr 1fr 1fr}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:820px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.card h4{margin:0 0 6px;color:var(--navy);font-size:16px}
+.card .tag{font-size:12px;color:var(--steel);font-weight:700;letter-spacing:.5px}
+.pillars .card{border-left:4px solid var(--steel)}
+.fragenkarten .card{border-left:4px solid var(--navy);background:var(--soft)}
+.fragenkarten h4{margin:2px 0 0}
+.break .card{border-left:4px solid #B0656A}
+.chartbox{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px}
+.chartbox h4{margin:0 0 10px;color:var(--navy);font-size:16px}
+.cap{font-size:13px;color:var(--grey);margin-top:8px}
+.flow{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap;margin:14px 0}
+.flow .step{flex:1;min-width:150px;background:var(--soft);border:1px solid #cfe0f2;border-radius:10px;padding:14px}
+.flow .step .n{color:var(--steel);font-weight:700;font-size:13px}
+.flow .arrow{align-self:center;color:var(--steel);font-size:22px}
+@media(max-width:820px){table.srctable,table.hk{font-size:12px}table.srctable th,table.srctable td,table.hk th,table.hk td{padding:6px 6px;word-break:break-word;overflow-wrap:anywhere}table.hk th,table.hk td{width:auto!important}}
+.zwei>div,.grid>*,.chartbox{min-width:0}
+.chartbox canvas{max-width:100%}
+.statusbox{margin:14px 0 0;padding:12px 16px;border-left:3px solid #F4C013;background:rgba(255,255,255,.08);font-size:.9rem;line-height:1.6;color:#e8eef7}
+.rueckbox{border:1px solid var(--line);border-left:4px solid var(--navy);background:var(--soft);padding:16px 18px;margin:18px 0}
+.rueckbox b{color:var(--navy)}
+.rueckbox p{margin:8px 0;font-size:.92rem;line-height:1.6}
+.rueckbox ol{margin:10px 0 10px 20px;padding:0}
+.rueckbox li{font-size:.92rem;line-height:1.6;margin-bottom:6px}
+.rueckbox .warn{border-top:1px solid var(--line);padding-top:10px;margin-top:12px;color:var(--grey)}
+#sammeln a.adr{color:#fff;text-decoration:underline}
+#sammelinfo.warnung{background:#F4C013;color:#17140F;padding:4px 10px;border-radius:5px;font-weight:600}
+.vbild{margin:22px 0 6px;border:1px solid var(--line);background:var(--paper);padding:16px 14px 10px}
+.vbild svg{width:100%;height:auto;display:block}
+.vbild figcaption{font-size:.86rem;color:var(--grey);line-height:1.5;margin-top:10px}
+.vliste{display:none;margin:0;padding:0;list-style:none}
+.vliste li{border-left:3px solid var(--steel);padding:6px 0 6px 12px;margin-bottom:10px}
+.vliste li b{color:var(--navy);display:block}
+.vliste li span{font-size:.86rem;color:var(--grey)}
+.vliste li.rueck{border-left-color:var(--navy2);font-size:.86rem;color:var(--grey)}
+@media(max-width:760px){.vbild svg{display:none}.vliste{display:block}}
+.loop{font-size:13px;color:var(--grey);font-style:italic;margin-top:2px}
+table.reg{width:100%;border-collapse:collapse;font-size:13.5px}
+table.reg th{background:var(--navy);color:#fff;text-align:left;padding:8px 9px;position:sticky;top:44px;cursor:pointer;white-space:nowrap}
+table.reg td{padding:7px 9px;border-bottom:1px solid #eef1f5;vertical-align:top}
+table.reg tr:hover td{background:#f6f9fd}
+.chip{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;border:1px solid rgba(0,0,0,.08);white-space:nowrap}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:12px 0}
+.controls input,.controls select{font-size:14px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.controls input[type=search]{min-width:240px;flex:1}
+.count{font-size:13px;color:var(--grey);margin-left:auto}
+.expand td{background:#f6f9fd;font-size:13px;color:#333}
+.crossgrid{display:grid;grid-template-columns:120px 1fr 1fr;grid-template-rows:auto 1fr 1fr;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.crossgrid .axlab{background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;font-size:12.5px;padding:8px;font-weight:600}
+.crossgrid .q{padding:14px;border:1px solid #eef1f5;min-height:120px}
+.crossgrid .q h5{margin:0 0 4px;color:var(--navy);font-size:15px}
+.crossgrid .q small{color:var(--grey)}
+.crossgrid .q.empty{background:repeating-linear-gradient(45deg,#fff,#fff 9px,#fbeaea 9px,#fbeaea 18px);border:1px dashed #B0656A}
+.crossgrid .q.empty h5{color:#B0656A}
+.mini{font-size:13px;color:var(--grey)}
+.crit{counter-reset:c}
+.crit .card{position:relative}
+.crit .card .tag{display:block}
+.decisions .card{border-left:4px solid var(--navy)}
+.liefer{background:var(--soft);border:1px solid #cfe0f2;border-radius:10px;padding:16px 18px;font-size:14.5px}
+.liefer b{color:var(--navy)}
+.verif{font-size:14px;color:var(--grey);background:var(--soft);border:1px solid #cfe0f2;border-radius:10px;padding:12px 16px;margin-top:14px}
+.herkrow{margin:8px 0 2px;font-size:13px;color:var(--grey)}
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.ctit{font-size:13px;font-weight:700;color:var(--navy2);margin:2px 0 6px}
+@media (max-width:820px){.zwei{grid-template-columns:1fr}}
+.pointe{font-size:17px;color:var(--navy);border-left:3px solid var(--navy);padding-left:14px;margin:16px 0 4px}
+h4.gegen{color:var(--navy);font-size:17px;margin:24px 0 4px}
+.herk{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.02em;padding:2px 9px;border-radius:999px;margin:0 5px 0 0;border:1px solid transparent}
+.herk.kern{background:#EAE6F2;color:#4A3B7A;border-color:#D6CCEA}
+.herk.werk{background:#E1EAF6;color:#1F3864;border-color:#C6D8EE}
+.herk.bib{background:#EAF1F8;color:#25507E;border-color:#CFE0F2}
+.herk.welt{background:#E4EFE8;color:#2F6B47;border-color:#C6E0D0}
+.herk.modell{background:#EFEFEF;color:#555;border-color:#DDD}
+.herk.verm{background:#FBECEC;color:#9C3A3A;border-color:#F0CFCF}
+.srctable{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:6px}
+.srctable th{background:var(--navy);color:#fff;text-align:left;padding:7px 9px}
+.srctable td{padding:7px 9px;border-bottom:1px solid #eef1f5;vertical-align:top}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
+.badge{display:inline-block;background:var(--soft);color:var(--navy);border:1px solid #cfe0f2;border-radius:20px;padding:3px 12px;font-size:13px;font-weight:600;margin:2px 4px 2px 0}
+.two{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:start}
+@media(max-width:820px){.two{grid-template-columns:1fr}}
+
+  /* --- Werkstatt zum Aufklappen --- */
+  .werkstatt{border:1px solid var(--line);border-radius:10px;margin:18px 0;background:#fcfdfe}
+  .werkstatt>summary{cursor:pointer;list-style:none;padding:13px 16px;font-weight:600;
+    color:var(--navy);display:flex;align-items:center;gap:10px;font-size:15px}
+  .werkstatt>summary::-webkit-details-marker{display:none}
+  .werkstatt>summary::before{content:"+";display:inline-flex;align-items:center;justify-content:center;
+    width:20px;height:20px;border:1px solid var(--steel);border-radius:5px;color:var(--steel);
+    font-weight:700;font-size:14px;line-height:1;flex:0 0 auto}
+  .werkstatt[open]>summary::before{content:"–"}
+  .werkstatt>summary:hover{background:var(--soft);border-radius:10px}
+  .werkstatt .wk{padding:2px 18px 18px;border-top:1px solid var(--line);margin-top:2px}
+  .werkstatt .wk h5{font-size:14.5px;color:var(--navy);margin:16px 0 6px}
+  .werkstatt .wk p,.werkstatt .wk li{font-size:14px;color:#333;line-height:1.55}
+  .werkstatt .wk ul{margin:6px 0 6px 18px}
+  .werkstatt .wkq{font-size:12px;color:var(--grey);margin-top:14px;font-style:italic}
+  .wktab{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0}
+  .wktab th,.wktab td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+  .wktab th{background:var(--soft);color:var(--navy)}
+
+  /* --- Fragen am Kapitelende --- */
+  .fragen{border:1px solid #E6D9A8;background:#FEFBF0;border-radius:10px;padding:16px 18px;margin:26px 0 4px}
+  .fragen h4{margin:0 0 4px;font-size:15px;color:var(--navy)}
+  .fragen .fh{font-size:12.5px;color:var(--grey);margin:0 0 12px}
+  .fragen .frage{margin:0 0 12px}
+  .fragen label{display:block;font-size:14px;color:var(--ink);margin-bottom:5px;font-weight:600}
+  .fragen .warum{display:block;font-size:12.5px;color:var(--grey);font-weight:400;margin-top:2px}
+  .fragen textarea{width:100%;box-sizing:border-box;min-height:54px;resize:vertical;
+    border:1px solid #DDD3B0;border-radius:7px;padding:9px 11px;font:inherit;font-size:14px;background:#fff}
+  .fragen textarea:focus{outline:2px solid var(--steel);outline-offset:-1px;border-color:var(--steel)}
+
+  /* --- Sammelleiste --- */
+  #sammeln{position:sticky;bottom:0;z-index:50;background:var(--navy);color:#fff;
+    padding:11px 16px;border-radius:10px;display:none;align-items:center;gap:14px;
+    margin:26px 0 0;flex-wrap:wrap;font-size:14px}
+  #sammeln.an{display:flex}
+  #sammeln b{font-size:15px}
+  #sammeln button{background:#fff;color:var(--navy);border:0;border-radius:7px;
+    padding:7px 14px;font:inherit;font-weight:600;cursor:pointer}
+  #sammeln button:hover{background:var(--soft)}
+  #sammeln .leer{background:transparent;color:#cfe0f2;border:1px solid #476394;font-weight:400}
+  #sammelinfo{color:#cfe0f2;font-size:13px}
+
+  .fb{margin:18px 0}
+  .fbk .fnr{display:inline-block;min-width:1.5em;color:var(--steel);font-variant-numeric:tabular-nums}
+.fbk{font-size:15px;font-weight:700;color:var(--navy);margin:0 0 10px;padding-left:12px;
+    border-left:4px solid var(--steel)}
+  .leitfrage{font-size:20px;line-height:1.4;font-weight:600;color:var(--navy);
+    border-left:4px solid var(--navy);padding:4px 0 4px 16px;margin:16px 0 14px}
+  .hkz{font-size:11px;color:var(--steel);text-decoration:none;border-bottom:1px dotted var(--steel);
+    margin-left:6px;white-space:nowrap}
+  .hkz:hover{color:var(--navy);border-bottom-style:solid}
+  .entwurfband{background:#F4C013;color:#17140F;padding:10px 16px;font-size:14px;
+    text-align:center;font-weight:600}
+  .hk{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0}
+  .hk th,.hk td{border-bottom:1px solid var(--line);padding:10px 10px;text-align:left;vertical-align:top}
+  .hk th{background:var(--soft);color:var(--navy);font-size:13px}
+  .st{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;
+    white-space:nowrap;letter-spacing:.02em}
+  .st.her{background:#E7F0E7;color:#3E6B3E}
+  .st.ges{background:#E6EDF7;color:#2E4C7E}
+  .st.off{background:#FBE9E7;color:#9C3B2E}
+  .legende{font-size:12.5px;color:#444;line-height:1.7;background:#F7F9FC;
+    border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:18px 0 0}
+  .legende .herk{margin-right:2px}
+</style>
+<style>
+.entwurfsband{background:#7A1F1A;color:#fff;padding:10px 0;font-size:14px}
+.entwurfsband b{color:#FFD9D5}
+.rueckvorA{background:var(--soft);border:1px solid #cfe0f2;border-radius:10px;padding:14px 18px;margin:22px 0 0;font-size:14.5px}
+h3{color:var(--navy);font-size:19px;margin:26px 0 8px}
+h2>span.num{display:inline-block;min-width:1.4em;color:var(--steel)}
+.zielkarten .card{border-left:4px solid var(--navy)}
+</style>
+</head>
+<body>
+
+<div class="entwurfsband"><div class="wrap"><b>ENTWURF, NICHT DIE GELTENDE SEITE.</b> Aufbau nach der von Klaus am 22.09.2026 beschlossenen Gliederung A bis I plus Anhang. Bisher liegt Abschnitt A vor. Die geltende Seite ist weiterhin <a href="index.html" style="color:#FFD9D5">index.html</a>.</div></div>
+
+<header class="top"><div class="wrap">
+  <div class="kicker" style="color:#b9c6de">D2030 / D2045 &middot; Diskussionsgrundlage f&uuml;rs Kern-Team</div>
+  <h1>GRUNDRISSE</h1>
+  <div class="sub">Unser Zugang zur Zukunft der Gesellschaft, und der Foresight-Atlas, an dem wir uns messen</div>
+  <div class="meta">Stand: 22. September 2026 &middot; Quellenbasis: 204 kuratierte Quellen</div>
+  <div class="statusbox"><b>Kurz zum Stand.</b> Diese Seite beschreibt das Verfahren, nicht seine Ergebnisse. Nichts davon ist abgenommen, die Pr&uuml;fliste ist nie gelaufen, kein Grundriss-Kandidat ist bisher ein Grundriss. Was offen ist und wie wir uns pr&uuml;fen, steht vollst&auml;ndig in Abschnitt&nbsp;I.</div>
+</div></header>
+
+<nav class="anchors"><div class="wrap"><a href="#a"><span class="n">A</span>Zielsetzung</a><a href="#b"><span class="n">B</span>Ausgangslage</a><a href="#c"><span class="n">C</span>Wissensbasis</a><a href="#d"><span class="n">D</span>Methodischer Ansatz</a><a href="#e"><span class="n">E</span>Arbeitsprozess</a><a href="#f"><span class="n">F</span>Zwischenprodukte</a><a href="#g"><span class="n">G</span>Endprodukt</a><a href="#h"><span class="n">H</span>Ergebnisse</a><a href="#i"><span class="n">I</span>Was offen ist</a><a href="#anhang"><span class="n">&nbsp;</span>Anhang</a></div></nav>
+
+<div class="wrap"><div class="rueckvorA"><b>So kommt eure R&uuml;ckmeldung zu mir.</b> Wo wirklich etwas zu entscheiden oder zu erg&auml;nzen ist, steht am Ende des Abschnitts ein Feld. Eure Texte bleiben auf diesem Ger&auml;t, bis ihr sie selbst verschickt. Unten sammelt eine Leiste alle Antworten, und mit einem Klick &ouml;ffnet sich eine vorbereitete Mail an <a href="mailto:burmeister@foresightlab.de">burmeister@foresightlab.de</a>. Ohne diesen letzten Schritt erreicht mich nichts. Ich sehe auch nicht, wer gelesen hat.</div></div>
+
+<section id="a"><div class="wrap">
+  <div class="kicker">Abschnitt A</div>
+  <h2><span class="num">A</span>Zielsetzung</h2>
+  <div class="herkrow"><span class="herk kern">Kern</span> Aus der GRUNDRISSE-DNA Fassung&nbsp;9, gewachsen aus den eigenen Szenarioanalysen 2018 und 2024. <span class="herk verm">Annahme</span> Die drei Ziele sind so noch nicht vom Kern-Team abgenommen.</div>
+
+  <p class="pointe">Wir bewohnen eine Ordnung, die wir nicht gebaut haben.</p>
+
+  <p>Ihr Fundament besteht aus Annahmen, die gemacht sind, die ein Datum haben und die nachgeben. Vieles daran l&auml;sst sich ausbessern. Manches nicht. Wo ein Riss bis in den Grund geht, hilft keine Reparatur, dann muss neu gebaut werden. Solche Risse suchen wir. Wir nennen sie Grundrisse, weil im Wort beides steckt: der Sprung im Fundament und der Entwurf, den er verlangt. Und weil es den Menschen nicht ohne Gesellschaft gibt, steht in jedem dieser Risse dieselbe Frage: Was h&auml;lt uns dann noch zusammen?</p>
+
+  <h3>Was GRUNDRISSE erreichen soll</h3>
+  <div class="grid g3 zielkarten">
+    <div class="card"><span class="tag">Ziel 1</span><h4>Die Risse finden, bevor sie durchgehen</h4><div class="mini">Nicht Trends fortschreiben, sondern die Stellen benennen, an denen das Fundament nachgibt. Jede einzelne geht durch eine Pr&uuml;fliste, bevor sie Grundriss hei&szlig;en darf.</div></div>
+    <div class="card"><span class="tag">Ziel 2</span><h4>Sagen, was daraus folgt, f&uuml;r heute und f&uuml;r ein neues Morgen</h4><div class="mini">An den Weichen ablesen, was heute schon entschieden wird, und woraufhin gebaut werden kann. Der Riss ist der Befund, der Entwurf ist die Pflicht, die daraus folgt.</div></div>
+    <div class="card"><span class="tag">Ziel 3</span><h4>Ein Verfahren hinterlassen, das andere benutzen k&ouml;nnen</h4><div class="mini">Pr&uuml;fliste, Ma&szlig;stab, Blatt und die offengelegten eigenen Grenzen. Der Teil, der &uuml;ber dieses Vorhaben hinaus tr&auml;gt.</div></div>
+  </div>
+
+  <h3>F&uuml;r wen</h3>
+  <p><b>Zuerst f&uuml;r das Kern-Team.</b> Diese Seite ist die Diskussionsgrundlage, an der entschieden wird, ob der Zugang tr&auml;gt. Solange das nicht entschieden ist, steht hier nichts als beschlossen.</p>
+  <p><b>Danach f&uuml;r die, bei denen aus einem Riss eine Entscheidung wird:</b> Politik und Verwaltung, Wirtschaft und Verb&auml;nde, Wissenschaft, Bildung, organisierte Zivilgesellschaft. Die Ableitungen fallen je Gruppe verschieden aus. Wer einen Riss mit verursacht hat, bekommt eine andere Frage gestellt als wer in ihm wohnt.</p>
+
+  <h3>Was GRUNDRISSE nicht ist</h3>
+  <p>Keine Prognose und kein Trendreport. Auch keine weitere Szenariostudie mit Zielbildern, an denen sich jemand ausrichten soll. Wir gehen nach 2045, um von dort auf das zu schauen, was heute schon liegt. Was wir mitbringen, sind Risse, keine Zielbilder.</p>
+
+  <p class="pointe">Den Entwurf haben wir nicht. Niemand hat ihn. Es gibt keinen Bauherrn und keine erfahrenen Baumeister, weil so noch nie gebaut wurde. Eines haben wir: Wir sind die Einzigen, die den Riss sehen k&ouml;nnen, bevor er durchgeht.</p>
+
+  <div class="fb">
+    <div class="fbk"><span class="fnr">1</span>Tr&auml;gt diese Zielsetzung, und sind es die richtigen drei Ziele?</div>
+    <textarea rows="4" style="width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:8px;padding:10px;font:inherit" placeholder="Antwort zu Abschnitt A"></textarea>
+  </div>
+
+  <p class="mini" style="margin-top:22px">Was die Marken <span class="herk kern">Kern</span>, <span class="herk werk">Grundlage</span> und <span class="herk verm">Annahme</span> bedeuten, steht im Anhang.</p>
+</div></section>
+
+<section><div class="wrap">
+  <p class="mini">Hier endet der vorliegende Entwurf. Die Abschnitte B bis I und der Anhang werden nacheinander gebaut und jeweils einzeln vorgelegt.</p>
+</div></section>
+
+</body>
+</html>
