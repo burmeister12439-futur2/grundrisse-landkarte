@@ -34,9 +34,13 @@ header.top .sub{font-size:20px;color:#dfe7f4;margin-top:6px}
 header.top .meta{font-size:14px;color:#b9c6de;margin-top:14px}
 header.top .lead{margin-top:20px;font-style:italic;color:#eaf1fb;max-width:820px;font-size:16.5px}
 nav.anchors{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(4px);border-bottom:1px solid var(--line)}
-nav.anchors .wrap{display:flex;flex-wrap:wrap;gap:4px;padding:8px 22px}
-nav.anchors a{font-size:13px;color:var(--navy);text-decoration:none;padding:6px 10px;border-radius:6px}
-nav.anchors a:hover{background:var(--soft)}
+nav.anchors .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:2px 2px;padding:7px 22px}
+nav.anchors a{display:inline-flex;align-items:baseline;gap:6px;white-space:nowrap;font-size:13px;color:var(--navy);text-decoration:none;padding:5px 9px;border-radius:6px;line-height:1.35;border:1px solid transparent;transition:background .12s,border-color .12s}
+nav.anchors a .n{color:var(--steel);font-variant-numeric:tabular-nums;font-size:11.5px;font-weight:700}
+nav.anchors a:hover{background:var(--soft);border-color:#dbe5f1}
+nav.anchors a.hier{background:var(--navy);border-color:var(--navy);color:#fff}
+nav.anchors a.hier .n{color:#9fb6da}
+@media(max-width:820px){nav.anchors .wrap{padding:6px 14px;gap:1px}nav.anchors a{font-size:12px;padding:4px 7px}}
 section{padding:34px 0;border-bottom:1px solid #eef1f5}
 h2{color:var(--navy);font-size:26px;margin:0 0 4px;font-weight:700}
 h2 .num{color:var(--steel);font-weight:700;margin-right:8px}
@@ -199,7 +203,7 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
   <div class="meta">Stand: 3. September 2026 · v2 · Quellenbasis: 204 kuratierte Quellen</div>
 </div></header>
 
-<nav class="anchors"><a href="#frage">1 · Fragestellung</a><a href="#woher">2 · Woher wir kommen</a><a href="#vorgehen">3 · Vorgehen</a><a href="#spotlight">4 · Was ein Spotlight ist</a><a href="#schritte">5 · Die acht Schritte</a><a href="#beispiel">6 · Ein Beispiel</a><a href="#werkzeug">7 · Womit geprüft wird</a><a href="#atlas">8 · Der Atlas</a><a href="#raster">9 · Kriterienraster</a><a href="#feld4">10 · Die Leerstelle</a><a href="#ergebnisse">11 · Was herauskommt</a><a href="#diskussion">12 · Zur Diskussion</a><a href="#explorer">13 · 204 Quellen</a><a href="#quellen">14 · Quellen und Herkunft</a><a href="#herkunft">15 · Woher das kommt</a></nav>
+<nav class="anchors"><div class="wrap"><a href="#frage"><span class="n">1</span>Fragestellung</a><a href="#woher"><span class="n">2</span>Woher wir kommen</a><a href="#vorgehen"><span class="n">3</span>Vorgehen</a><a href="#spotlight"><span class="n">4</span>Was ein Spotlight ist</a><a href="#schritte"><span class="n">5</span>Die acht Schritte</a><a href="#beispiel"><span class="n">6</span>Ein Beispiel</a><a href="#werkzeug"><span class="n">7</span>Womit geprüft wird</a><a href="#atlas"><span class="n">8</span>Der Atlas</a><a href="#raster"><span class="n">9</span>Kriterienraster</a><a href="#feld4"><span class="n">10</span>Die Leerstelle</a><a href="#ergebnisse"><span class="n">11</span>Was herauskommt</a><a href="#diskussion"><span class="n">12</span>Zur Diskussion</a><a href="#explorer"><span class="n">13</span>204 Quellen</a><a href="#quellen"><span class="n">14</span>Quellen und Herkunft</a><a href="#herkunft"><span class="n">15</span>Woher das kommt</a></div></nav>
 
 <div class="wrap"><div class="legende"><b>Die Marken sagen, worauf eine Aussage beruht und wer sie zu verantworten hat.</b> <span class="herk kern">Kern</span> Setzungen und Konventionen des D2030-Szenarioteams, gewachsen aus den eigenen <a href="https://d2030.de/neue-horizonte-2/" target="_blank" rel="noopener">Vorarbeiten</a>. <span class="herk werk">Grundlage</span> eigene Studien und Methodikpapiere, nachgewiesen im <a href="#quellen">Nachweis</a>. <span class="herk bib">Quellen</span> der kuratierte Quellenbestand, einzeln nachlesbar unter <a href="#explorer">204 Quellen</a>. <span class="herk welt">Welt</span> recherchierte Außenquellen. <span class="herk modell">Modell-Wissen</span> Trainingswissen eines Sprachmodells ohne konkrete Außenquelle. <span class="herk verm">Annahme</span> ein Schluss des Kern-Teams, nicht belegt. Welche Setzung auf welchem Stand ist, steht im Reiter <a href="#herkunft">Woher das kommt</a>.</div></div>
 
@@ -1283,6 +1287,23 @@ render();
 drawCharts();
 </script>
 <script>
+
+/* ---- Navigation: aktuellen Abschnitt markieren ---- */
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll("nav.anchors a"));
+  if(!links.length || !("IntersectionObserver" in window)) return;
+  var karte = {};
+  links.forEach(function(a){ karte[a.getAttribute("href").slice(1)] = a; });
+  var sichtbar = {};
+  var beob = new IntersectionObserver(function(eintraege){
+    eintraege.forEach(function(e){ sichtbar[e.target.id] = e.isIntersecting ? e.intersectionRatio : 0; });
+    var best = null, wert = 0;
+    Object.keys(sichtbar).forEach(function(k){ if(sichtbar[k] > wert){ wert = sichtbar[k]; best = k; } });
+    links.forEach(function(a){ a.classList.remove("hier"); });
+    if(best && karte[best]) karte[best].classList.add("hier");
+  }, {rootMargin:"-70px 0px -55% 0px", threshold:[0,.15,.4,.75,1]});
+  document.querySelectorAll("section[id]").forEach(function(sec){ beob.observe(sec); });
+})();
 
 /* ---- Fragen: Antworten merken, sammeln, kopieren ---- */
 (function(){
