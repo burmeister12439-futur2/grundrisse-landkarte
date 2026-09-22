@@ -60,6 +60,13 @@ p{margin:10px 0}
 .flow .step{flex:1;min-width:150px;background:var(--soft);border:1px solid #cfe0f2;border-radius:10px;padding:14px}
 .flow .step .n{color:var(--steel);font-weight:700;font-size:13px}
 .flow .arrow{align-self:center;color:var(--steel);font-size:22px}
+.rueckbox{border:1px solid var(--line);border-left:4px solid var(--navy);background:var(--soft);padding:16px 18px;margin:18px 0}
+.rueckbox b{color:var(--navy)}
+.rueckbox p{margin:8px 0;font-size:.92rem;line-height:1.6}
+.rueckbox ol{margin:10px 0 10px 20px;padding:0}
+.rueckbox li{font-size:.92rem;line-height:1.6;margin-bottom:6px}
+.rueckbox .warn{border-top:1px solid var(--line);padding-top:10px;margin-top:12px;color:var(--grey)}
+#sammeln a.adr{color:#fff;text-decoration:underline}
 .vbild{margin:22px 0 6px;border:1px solid var(--line);background:var(--paper);padding:16px 14px 10px}
 .vbild svg{width:100%;height:auto;display:block}
 .vbild figcaption{font-size:.86rem;color:var(--grey);line-height:1.5;margin-top:10px}
@@ -196,6 +203,18 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
 
 <div class="wrap"><div class="legende"><b>Die Marken sagen, worauf eine Aussage beruht und wer sie zu verantworten hat.</b> <span class="herk kern">Kern</span> Setzungen und Konventionen des D2030-Szenarioteams, gewachsen aus den eigenen <a href="https://d2030.de/neue-horizonte-2/" target="_blank" rel="noopener">Vorarbeiten</a>. <span class="herk werk">Grundlage</span> eigene Studien und Methodikpapiere, nachgewiesen im <a href="#quellen">Nachweis</a>. <span class="herk bib">Quellen</span> der kuratierte Quellenbestand, einzeln nachlesbar unter <a href="#explorer">204 Quellen</a>. <span class="herk welt">Welt</span> recherchierte Außenquellen. <span class="herk modell">Modell-Wissen</span> Trainingswissen eines Sprachmodells ohne konkrete Außenquelle. <span class="herk verm">Annahme</span> ein Schluss des Kern-Teams, nicht belegt. Welche Setzung auf welchem Stand ist, steht im Reiter <a href="#herkunft">Woher das kommt</a>.</div></div>
 
+<div class="wrap"><div class="rueckbox" id="rueckmeldung">
+  <b>So kommt eure Rückmeldung zu mir</b>
+  <p>Unter jedem Kapitel stehen Fragen mit Feldern zum Hineinschreiben. Was ihr dort schreibt, bleibt zunächst in eurem Browser und wird nirgendwohin übertragen. Diese Seite liegt auf einem reinen Ablageplatz im Netz und kann nichts entgegennehmen. Sie kann nur eine Mail für euch vorbereiten.</p>
+  <ol>
+    <li><b>Schreiben.</b> Die Felder merken sich den Text auf diesem Gerät und in diesem Browser, auch wenn ihr die Seite zwischendurch schließt. An einem anderen Gerät oder in einem privaten Fenster fangt ihr neu an.</li>
+    <li><b>Sammeln.</b> Sobald etwas dasteht, erscheint unten am Bildschirmrand eine Leiste mit der Zahl eurer Antworten.</li>
+    <li><b>Schicken.</b> Der Knopf <i>Als Mail senden</i> öffnet euer Mailprogramm mit einer fertigen Mail an <a href="mailto:burmeister@foresightlab.de">burmeister@foresightlab.de</a>. Im Text stehen alle Antworten, jede mit Kapitel und Frage darüber. Ihr seht sie vor dem Absenden und könnt sie noch ändern.</li>
+  </ol>
+  <p><b>Wenn sich kein Mailprogramm öffnet</b>, weil ihr eure Mail im Browser lest: Nehmt <i>Alle Antworten kopieren</i> und schickt den Text selbst an <a href="mailto:burmeister@foresightlab.de">burmeister@foresightlab.de</a>. Oder nehmt <i>Als Datei sichern</i> und hängt die Datei an eine Mail.</p>
+  <p class="warn">Solange ihr keinen dieser Wege geht, kommt nichts bei mir an. Ich sehe auch nicht, wer die Seite gelesen hat. Das ist so gewollt, es hat aber den Preis, dass eine Rückmeldung nur ankommt, wenn ihr sie abschickt.</p>
+</div></div>
+
 <main class="wrap">
 
 <!-- 1 FRAGE -->
@@ -284,7 +303,7 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
   <p class="mini"><b>Warum nicht?</b> Weil die Prüfliste jünger ist als die Motive. Sie steht seit dem 21.09.2026, die Motive sind über Monate gewachsen. Die Probe ist der nächste Arbeitsschritt, sie kostet einen Tag, und sie steht bewusst vor der Einladung an andere: Erst am eigenen Bestand prüfen, dann fremde Zeit in Anspruch nehmen.</p>
 <div class="fragen">
 <h4>Fragen zu Kapitel 1</h4>
-<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<p class="fh">Antworten bleiben in deinem Browser, bis du sie schickst. <a href="#rueckmeldung">So kommt deine Rückmeldung an</a></p>
 <div class="frage">
 <label for="f1a">Trägt die Leitfrage, oder fragt sie am Problem vorbei?<span class="warum">Dass wir sie so stellen, ist eine Setzung und keine zwingende Ableitung. Wir wollen wissen, wo sie bricht.</span></label>
 <textarea id="f1a" data-frage="1a" rows="2"></textarea>
@@ -345,7 +364,7 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
 
 <div class="fragen">
 <h4>Fragen zu Kapitel 2</h4>
-<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<p class="fh">Antworten bleiben in deinem Browser, bis du sie schickst. <a href="#rueckmeldung">So kommt deine Rückmeldung an</a></p>
 <div class="frage">
 <label for="f2c">Ist eine der vier Grenzen zu scharf formuliert, oder fehlt eine fünfte?<span class="warum">Es ist Selbstkritik desselben Teams. Sie soll deutlich sein, aber sie soll auch stimmen.</span></label>
 <textarea id="f2c" data-frage="2c" rows="2"></textarea>
@@ -468,7 +487,7 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
 
 <div class="fragen">
 <h4>Fragen zu Kapitel 3</h4>
-<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<p class="fh">Antworten bleiben in deinem Browser, bis du sie schickst. <a href="#rueckmeldung">So kommt deine Rückmeldung an</a></p>
 <div class="frage">
 <label for="f2a">Wir kehren die Szenariologik um, erst Bilder, dann Faktoren. Wo geht das schief?<span class="warum">Die Umkehrung ist der methodische Kern und zugleich das größte Risiko.</span></label>
 <textarea id="f2a" data-frage="2a" rows="2"></textarea>
@@ -524,7 +543,7 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
 
 <div class="fragen">
 <h4>Fragen zu Kapitel 4</h4>
-<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<p class="fh">Antworten bleiben in deinem Browser, bis du sie schickst. <a href="#rueckmeldung">So kommt deine Rückmeldung an</a></p>
 <div class="frage">
 <label for="f3a">Der Name Spotlight passt nicht zur Sache. Welcher wäre besser?<span class="warum">Ein Scheinwerfer baut nichts und bricht nichts, ein Grundstoff schon. Umbenennen kostet, aber falsche Begriffe kosten mehr.</span></label>
 <textarea id="f3a" data-frage="3a" rows="2"></textarea>
@@ -628,7 +647,7 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
 
 <div class="fragen">
 <h4>Fragen zu Kapitel 5</h4>
-<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<p class="fh">Antworten bleiben in deinem Browser, bis du sie schickst. <a href="#rueckmeldung">So kommt deine Rückmeldung an</a></p>
 <div class="frage">
 <label for="f4a">Wie viele Runden dieses Kreises kann sich das Projekt leisten?<span class="warum">Diese Zahl steht in keinem unserer Papiere. Ohne sie wird aus dem Verfahren ein offenes Fass.</span></label>
 <textarea id="f4a" data-frage="4a" rows="2"></textarea>
@@ -717,7 +736,7 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
 
 <div class="fb" id="fb6">
 <h4>Fragen zu Kapitel 6</h4>
-<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<p class="fh">Antworten bleiben in deinem Browser, bis du sie schickst. <a href="#rueckmeldung">So kommt deine Rückmeldung an</a></p>
 <div class="frage">
 <label for="fb6a">Trägt der Schritt vom Motiv zum Aufruf, oder fehlt dazwischen noch etwas?<span class="warum">Das war die Rückfrage aus dem Kern-Team, und sie ist mit diesem Beispiel beantwortet oder eben nicht.</span></label>
 <textarea id="fb6a" data-frage="b6a" rows="2"></textarea>
@@ -824,7 +843,7 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
 
 <div class="fragen">
 <h4>Fragen zu Kapitel 7</h4>
-<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<p class="fh">Antworten bleiben in deinem Browser, bis du sie schickst. <a href="#rueckmeldung">So kommt deine Rückmeldung an</a></p>
 <div class="frage">
 <label for="f5a">Welche der sechs Prüffragen würdest du streichen, und welche fehlt?<span class="warum">Die Liste ist noch nie gelaufen. Jetzt ist der billigste Zeitpunkt, sie zu ändern.</span></label>
 <textarea id="f5a" data-frage="5a" rows="2"></textarea>
@@ -860,7 +879,7 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
 
 <div class="fragen">
 <h4>Fragen zu Kapitel 8</h4>
-<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<p class="fh">Antworten bleiben in deinem Browser, bis du sie schickst. <a href="#rueckmeldung">So kommt deine Rückmeldung an</a></p>
 <div class="frage">
 <label for="f6a">Welche Quelle fehlt im Atlas, und warum gehört sie hinein?<span class="warum">204 Titel, und wir wissen, dass die Auswahl unsere eigene Handschrift trägt.</span></label>
 <textarea id="f6a" data-frage="6a" rows="2"></textarea>
@@ -893,7 +912,7 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
 
 <div class="fragen">
 <h4>Fragen zu Kapitel 9</h4>
-<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<p class="fh">Antworten bleiben in deinem Browser, bis du sie schickst. <a href="#rueckmeldung">So kommt deine Rückmeldung an</a></p>
 <div class="frage">
 <label for="f7a">Sechs beschreibende Kriterien, zwei Linsen. Was fehlt, was ist zu viel?<span class="warum">Das Raster entscheidet, was die Auswertung überhaupt sehen kann.</span></label>
 <textarea id="f7a" data-frage="7a" rows="2"></textarea>
@@ -937,7 +956,7 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
 
 <div class="fragen">
 <h4>Fragen zu Kapitel 10</h4>
-<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<p class="fh">Antworten bleiben in deinem Browser, bis du sie schickst. <a href="#rueckmeldung">So kommt deine Rückmeldung an</a></p>
 <div class="frage">
 <label for="f8a">Liegt das leere Feld an der Welt oder an uns Foresightern?<span class="warum">Beides ist möglich. Genau das soll die Analyse prüfen, statt es vorwegzunehmen.</span></label>
 <textarea id="f8a" data-frage="8a" rows="2"></textarea>
@@ -1015,7 +1034,7 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
 
 <div class="fragen">
 <h4>Fragen zu Kapitel 11</h4>
-<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<p class="fh">Antworten bleiben in deinem Browser, bis du sie schickst. <a href="#rueckmeldung">So kommt deine Rückmeldung an</a></p>
 <div class="frage">
 <label for="f9a">Welches der sechs Produkte wäre für dich das nützlichste, und welches würdest du streichen?<span class="warum">Jedes kostet Zeit. Wenn eines niemandem nützt, gehört es weg.</span></label>
 <textarea id="f9a" data-frage="9a" rows="2"></textarea>
@@ -1096,7 +1115,7 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
 
 <div class="fragen">
 <h4>Frage zu Kapitel 13</h4>
-<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<p class="fh">Antworten bleiben in deinem Browser, bis du sie schickst. <a href="#rueckmeldung">So kommt deine Rückmeldung an</a></p>
 <div class="frage">
 <label for="f12a">Wo ist auf dieser Seite eine Herkunftsangabe falsch oder zu großzügig?<span class="warum">Jede wesentliche Aussage trägt ihre Herkunft. Wenn eine nicht stimmt, ist das der wichtigste Fund.</span></label>
 <textarea id="f12a" data-frage="12a" rows="2"></textarea>
@@ -1158,9 +1177,10 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
 
 <div id="sammeln">
   <b id="sammelzahl">0 Antworten</b>
-  <span>Sie liegen nur in deinem Browser, bis du sie schickst.</span>
-  <button id="kopieren" type="button">Alle Antworten kopieren</button>
+  <span>Sie liegen nur in deinem Browser, bis du sie schickst. <a class="adr" href="#rueckmeldung">Wie das geht</a></span>
   <button id="mailen" type="button">Als Mail senden</button>
+  <button id="kopieren" type="button">Alle Antworten kopieren</button>
+  <button id="sichern" type="button">Als Datei sichern</button>
   <button id="leeren" class="leer" type="button">Leeren</button>
   <span id="sammelinfo"></span>
 </div>
@@ -1325,6 +1345,24 @@ drawCharts();
       if(navigator.clipboard && navigator.clipboard.writeText){
         navigator.clipboard.writeText(t).then(fertig, function(){ window.prompt("Zum Kopieren markieren:", t); });
       } else { window.prompt("Zum Kopieren markieren:", t); }
+    });
+
+    var sn = document.getElementById("sichern");
+    if(sn) sn.addEventListener("click", function(){
+      var d = new Date(), z = function(n){ return (n<10?"0":"")+n; };
+      var name = d.getFullYear()+"-"+z(d.getMonth()+1)+"-"+z(d.getDate())+"_GRUNDRISSE_Rueckmeldung.txt";
+      try{
+        var blob = new Blob([text()], {type:"text/plain;charset=utf-8"});
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob); a.download = name;
+        document.body.appendChild(a); a.click();
+        setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+        var i2 = document.getElementById("sammelinfo");
+        if(i2){ i2.textContent = "gesichert als " + name; setTimeout(function(){ i2.textContent=""; },6000); }
+      }catch(e){
+        var i3 = document.getElementById("sammelinfo");
+        if(i3) i3.textContent = "Sichern hat nicht geklappt, bitte kopieren.";
+      }
     });
 
     var mn = document.getElementById("mailen");
