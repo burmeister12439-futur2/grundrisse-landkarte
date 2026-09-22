@@ -44,8 +44,8 @@ und schlägt vor, schreibt aber nicht in dieselbe Datei.
 ### P1 · Der Zugang als Argument
 
 **Writer: HAL.** Der Zugang behauptet, dass der Grundvertrag der Moderne
-abgelaufen ist, und leitet daraus die Leitfrage der Neubestimmung des Menschen
-ab. Diese Kette gehört unabhängig geprüft: Trägt jeder Schritt? Wo ist die
+abgelaufen ist, und leitet daraus die Leitfrage nach der Ordnung des
+Zusammenlebens ab, mit vier Motiven darunter. Diese Kette gehört unabhängig geprüft: Trägt jeder Schritt? Wo ist die
 schwächste Stelle? Welche Gegenposition wird nicht behandelt?
 
 Claude liefert dazu Belege und Gegenbelege aus dem Register, auf Anforderung und

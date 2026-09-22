@@ -46,8 +46,11 @@ genug schien. Die vier Pfeiler sind unsere analytische Verdichtung, kein
 belegter Kanon. Anders als transformative Entwürfe eines neuen
 Gesellschaftsvertrags setzen wir die Antwort nicht voraus.
 
-Aus dieser Diagnose wählen wir als Leitfrage die Neubestimmung des
-Menschen. Das ist eine Setzung, keine zwingende Ableitung.
+Aus dieser Diagnose folgt unsere Leitfrage: Was wird aus der Ordnung
+unseres Zusammenlebens, wenn die vier Pfeiler nicht mehr tragen? Darunter
+liegen vier Motive auf einer Ebene, eines davon die Neubestimmung des
+Menschen. Dass wir die Frage so stellen, ist eine Setzung, keine
+zwingende Ableitung.
 
 Das Vorgehen kehrt die Szenariologik um: erst zugespitzte Bilder, dann
 Faktoren, dann Vollszenarien. Der Foresight-Atlas ist die eigenständige,
