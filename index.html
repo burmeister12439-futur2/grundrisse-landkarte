@@ -107,6 +107,49 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
 .badge{display:inline-block;background:var(--soft);color:var(--navy);border:1px solid #cfe0f2;border-radius:20px;padding:3px 12px;font-size:13px;font-weight:600;margin:2px 4px 2px 0}
 .two{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:start}
 @media(max-width:820px){.two{grid-template-columns:1fr}}
+
+  /* --- Werkstatt zum Aufklappen --- */
+  .werkstatt{border:1px solid var(--line);border-radius:10px;margin:18px 0;background:#fcfdfe}
+  .werkstatt>summary{cursor:pointer;list-style:none;padding:13px 16px;font-weight:600;
+    color:var(--navy);display:flex;align-items:center;gap:10px;font-size:15px}
+  .werkstatt>summary::-webkit-details-marker{display:none}
+  .werkstatt>summary::before{content:"+";display:inline-flex;align-items:center;justify-content:center;
+    width:20px;height:20px;border:1px solid var(--steel);border-radius:5px;color:var(--steel);
+    font-weight:700;font-size:14px;line-height:1;flex:0 0 auto}
+  .werkstatt[open]>summary::before{content:"–"}
+  .werkstatt>summary:hover{background:var(--soft);border-radius:10px}
+  .werkstatt .wk{padding:2px 18px 18px;border-top:1px solid var(--line);margin-top:2px}
+  .werkstatt .wk h5{font-size:14.5px;color:var(--navy);margin:16px 0 6px}
+  .werkstatt .wk p,.werkstatt .wk li{font-size:14px;color:#333;line-height:1.55}
+  .werkstatt .wk ul{margin:6px 0 6px 18px}
+  .werkstatt .wkq{font-size:12px;color:var(--grey);margin-top:14px;font-style:italic}
+  .wktab{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0}
+  .wktab th,.wktab td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+  .wktab th{background:var(--soft);color:var(--navy)}
+
+  /* --- Fragen am Kapitelende --- */
+  .fragen{border:1px solid #E6D9A8;background:#FEFBF0;border-radius:10px;padding:16px 18px;margin:26px 0 4px}
+  .fragen h4{margin:0 0 4px;font-size:15px;color:var(--navy)}
+  .fragen .fh{font-size:12.5px;color:var(--grey);margin:0 0 12px}
+  .fragen .frage{margin:0 0 12px}
+  .fragen label{display:block;font-size:14px;color:var(--ink);margin-bottom:5px;font-weight:600}
+  .fragen .warum{display:block;font-size:12.5px;color:var(--grey);font-weight:400;margin-top:2px}
+  .fragen textarea{width:100%;box-sizing:border-box;min-height:54px;resize:vertical;
+    border:1px solid #DDD3B0;border-radius:7px;padding:9px 11px;font:inherit;font-size:14px;background:#fff}
+  .fragen textarea:focus{outline:2px solid var(--steel);outline-offset:-1px;border-color:var(--steel)}
+
+  /* --- Sammelleiste --- */
+  #sammeln{position:sticky;bottom:0;z-index:50;background:var(--navy);color:#fff;
+    padding:11px 16px;border-radius:10px;display:none;align-items:center;gap:14px;
+    margin:26px 0 0;flex-wrap:wrap;font-size:14px}
+  #sammeln.an{display:flex}
+  #sammeln b{font-size:15px}
+  #sammeln button{background:#fff;color:var(--navy);border:0;border-radius:7px;
+    padding:7px 14px;font:inherit;font-weight:600;cursor:pointer}
+  #sammeln button:hover{background:var(--soft)}
+  #sammeln .leer{background:transparent;color:#cfe0f2;border:1px solid #476394;font-weight:400}
+  #sammelinfo{color:#cfe0f2;font-size:13px}
+
 </style>
 </head>
 <body>
@@ -163,6 +206,19 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
   <p>Aus der Diagnose folgt die Leitfrage: Was wird aus der Ordnung unseres Zusammenlebens, wenn die vier Pfeiler nicht mehr tragen, auf denen sie ruhte: die Natur als Ressource, die Technik als Werkzeug, das Wachstum als Versprechen und die Welt als groß genug? Sie ist eine Frage, keine These, und dass wir sie so stellen, ist eine Setzung und keine zwingende Ableitung. Ob diese Frage trägt, ist offen. An ihr messen sich alle Spotlights, alle Faktoren und am Ende alle Vollszenarien.</p>
   <p>Darunter liegen vier Motive, alle auf einer Ebene, jedes ein Versuch zu antworten. <b>Die Neubestimmung des Menschen:</b> Die Technik verliert ihren Werkzeugcharakter, und was wird aus der Stellung des Menschen, wenn Urteil und Sprache teilbar werden? <b>Der endliche Planet als Grenze des Wachstums:</b> Was wird aus einer Ordnung, deren Versprechen Wachstum war? <b>Die Erosion der einen Weltordnung:</b> Was wird aus dem Ort Deutschlands und Europas, wenn die eine Ordnung in konkurrierende Cluster zerfällt? <b>Die Bindung ohne Arbeit:</b> Welche Bindung übernimmt, wenn die Arbeit ihre bindende Kraft verliert, und was kostet sie?</p>
   <p>Woran wir die vier messen, sagen wir offen: ob ein Leben in Würde möglich bleibt und ob eine Existenz der Art, wie wir sie bisher kennen, überhaupt möglich bleibt. Zu jedem gehört die Angabe, wo es noch offen ist und was daran bereits unumkehrbar ist. Ein Motiv wird zum Grundriss, wenn es diese Prüfung besteht. Bisher hat keines sie durchlaufen.</p>
+
+<div class="fragen">
+<h4>Fragen zu Kapitel 1</h4>
+<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<div class="frage">
+<label for="f1a">Trägt die Leitfrage, oder fragt sie am Problem vorbei?<span class="warum">Dass wir sie so stellen, ist eine Setzung und keine zwingende Ableitung. Wir wollen wissen, wo sie bricht.</span></label>
+<textarea id="f1a" data-frage="1a" rows="2"></textarea>
+</div>
+<div class="frage">
+<label for="f1b">Fehlt unter den vier Pfeilern einer, oder ist einer zu viel?<span class="warum">Natur als Ressource, Technik als Werkzeug, Wachstum als Versprechen, Welt als groß genug.</span></label>
+<textarea id="f1b" data-frage="1b" rows="2"></textarea>
+</div>
+</div>
 </section>
 
 <!-- 2 VORGEHEN -->
@@ -200,6 +256,19 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
     <div class="card"><span class="tag">Bewertungs-Trias · 3</span><h4>Radikalkompromiss-Fähigkeit</h4><div class="mini">Legt das Bild einen Zielkonflikt frei, über den sich produktiv streiten lässt?</div></div>
   </div>
   <p class="mini" style="margin-top:12px">Dazu die offen dokumentierte Mensch-KI-Werkstatt (Modelle namentlich, Vier-Augen-Prinzip, der Mensch entscheidet) und die Verzahnung mit den Radikalen Kompromissen, die Foresight nicht bei Bildern enden lässt, sondern in die Aushandlung führt.</p>
+
+<div class="fragen">
+<h4>Fragen zu Kapitel 2</h4>
+<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<div class="frage">
+<label for="f2a">Wir kehren die Szenariologik um, erst Bilder, dann Faktoren. Wo geht das schief?<span class="warum">Die Umkehrung ist der methodische Kern und zugleich das größte Risiko.</span></label>
+<textarea id="f2a" data-frage="2a" rows="2"></textarea>
+</div>
+<div class="frage">
+<label for="f2b">R4, Europäische Souveränität: eigene Achse oder Sonderfall von R1?<span class="warum">Die Lesart ist im Kern-Team offen.</span></label>
+<textarea id="f2b" data-frage="2b" rows="2"></textarea>
+</div>
+</div>
 </section>
 
 <!-- 3 SPOTLIGHT -->
@@ -243,6 +312,23 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
   <div class="liefer" style="margin-top:20px;border-left:4px solid #F4C013">
     <b>Offene Frage, und sie ist unsere eigene.</b> Der Name passt nicht zur Sache. Ein Scheinwerfer baut nichts und bricht nichts, ein Grundstoff schon. Umbenennen kostet, weil Template, Atlas-Texte und der öffentliche Kurzname daran hängen. Der Name bleibt deshalb vorerst. Wer einen besseren hat, möge ihn sagen.
   </div>
+
+<div class="fragen">
+<h4>Fragen zu Kapitel 3</h4>
+<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<div class="frage">
+<label for="f3a">Der Name Spotlight passt nicht zur Sache. Welcher wäre besser?<span class="warum">Ein Scheinwerfer baut nichts und bricht nichts, ein Grundstoff schon. Umbenennen kostet, aber falsche Begriffe kosten mehr.</span></label>
+<textarea id="f3a" data-frage="3a" rows="2"></textarea>
+</div>
+<div class="frage">
+<label for="f3b">Fehlt im Blatt ein Feld, oder ist eines überflüssig?<span class="warum">Acht Felder. Die Felder 6 und 7, Einwand und Warte, sind unsere Zugabe gegen die üblichen Vorlagen.</span></label>
+<textarea id="f3b" data-frage="3b" rows="2"></textarea>
+</div>
+<div class="frage">
+<label for="f3c">Schreib einen Spotlight-Satz zu etwas, das du besser kennst als wir.<span class="warum">Ein Satz, der behauptet und nicht referiert, und der sagt, an welchem Pfeiler er zerrt.</span></label>
+<textarea id="f3c" data-frage="3c" rows="2"></textarea>
+</div>
+</div>
 </section>
 
 <!-- 4 SCHRITTE -->
@@ -263,6 +349,61 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
   </table>
   <div class="pointe" style="margin-top:18px">Die Reihenfolge von 3 vor 4 ist der Kern. Erst am eigenen Bestand prüfen, dann einladen. Das ist der billigste Fehlerfinder im ganzen Verfahren und kostet einen Tag.</div>
 
+  
+<details class="werkstatt" id="wk-verdichten">
+  <summary>Werkstatt öffnen: Wie aus vielen Beiträgen wenige Funde werden (Schritt 5)</summary>
+  <div class="wk">
+    <p>Eine einzige Skala von bekannt über möglich bis neuartig sortiert nicht, weil sie zwei Fragen vermischt. Deshalb zwei Achsen: <b>wie bekannt</b> reicht von „steht in jedem Trendreport" bis „nirgends gefunden", <b>wie viel gibt nach</b> von „ändert eine Branche" bis „zieht an einem der vier Pfeiler".</p>
+    <table class="wktab">
+      <tr><th>&nbsp;</th><th>wenig Hebel</th><th>viel Hebel</th></tr>
+      <tr><th>bekannt</th><td>Grundrauschen. Ablegen, nicht wegwerfen.</td><td>Konsens-Kern. Trägt Last, bringt nichts Neues.</td></tr>
+      <tr><th>neu</th><td>Kuriosum. Siehe Aufdecker-Regel.</td><td>Fund. Selten, und danach wird gesucht.</td></tr>
+    </table>
+    <h5>Die Aufdecker-Regel</h5>
+    <p>Ein Kuriosum wird nicht nach seiner eigenen Wahrscheinlichkeit bewertet. Die Frage lautet: Welche Annahme müsste falsch sein, damit das möglich wird? Nennt die Antwort eine Annahme, die wir tatsächlich still mitführen, ist der Beitrag ein Aufdecker und wertvoll, auch wenn er nie eintritt. Damit wird nichts ausgeblendet und trotzdem nicht alles hereingelassen.</p>
+    <h5>Drei Ergebnisse, nicht eines</h5>
+    <ul>
+      <li><b>Die Einsortierung</b> der Einzelbeiträge in die vier Felder, mit einer Zeile Begründung je Beitrag.</li>
+      <li><b>Die Verknüpfungen.</b> Welche Beiträge aus verschiedenen Ecken dieselbe tragende Stelle treffen, und welche Paare erst zusammen gefährlich werden. Hieraus entstehen die Motiv-Kandidaten, nicht aus der Häufigkeit eines Themas.</li>
+      <li><b>Die Leerstellen.</b> Was in keinem Beitrag vorkommt. Achtung: Sie misst sich an unserer Liste und findet deshalb nur Fehlendes im Bekannten.</li>
+    </ul>
+    <h5>Gegen das Konzert: ein Mengenbudget, offen ausgewiesen</h5>
+    <p>Der Workshop bekommt sämtliche Funde, die zehn stärksten aus dem Konsens-Kern und genau fünf Aufdecker. Alles Übrige bleibt in einer vollständigen Liste lesbar. Je Feld eine Zeile dazu, was aussortiert wurde und warum. Eine unsichtbare Auswahl ist schlimmer als eine strenge.</p>
+    <h5>Die Streuung ist kein Rauschen</h5>
+    <p>Wo die Beiträge am weitesten auseinandergehen, ist die Zukunft tatsächlich offen. Das ist eine Weiche. Verdichten heißt hier nicht mitteln, sondern die Streuung festhalten.</p>
+    <h5>Was die Maschine kann und was nicht</h5>
+    <p>Sie kann alles lesen, beim letzten Beitrag so aufmerksam wie beim ersten, und bemerken, dass zwei Beiträge aus verschiedenen Welten denselben Mechanismus beschreiben. Sie kann Neuheit nicht zuverlässig beurteilen: Ihr Gefühl für neu ist ein Gefühl für selten im eigenen Material, verzerrt zugunsten des Jüngeren und des Englischsprachigen. Und sie neigt dazu, zu glätten. Folge: sortierte Vorlage mit Begründung, nie ein Urteil. Bewertet wird im Workshop.</p>
+    <div class="wkq">Quelle: Verfahrens-Werkstattnotiz v1, Abschnitt 2. Nichts davon ist beschlossen.</div>
+  </div>
+</details>
+
+<details class="werkstatt" id="wk-unbekannt">
+  <summary>Werkstatt öffnen: Drei Wege zu dem, was wir nicht auf dem Schirm haben</summary>
+  <div class="wk">
+    <p>Direkt identifizieren lässt sich ein unbekanntes Unbekanntes nicht, sonst wäre es keines. Man kann nur Bedingungen herstellen, unter denen es sich zeigt.</p>
+    <h5>Erstens: Spuren im Bekannten</h5>
+    <ul>
+      <li><b>Die Rest-Ablage.</b> Alles, was in kein Feld passt, kommt dorthin und wird in Abständen wieder gelesen. Nicht um zu sehen, was drinsteht, sondern ob sich ein Muster gebildet hat. Der Rest ist der wahrscheinlichste Wohnort des Unbekannten.</li>
+      <li><b>Widersprüche zwischen zwei gut belegten Beiträgen.</b> Wo beide stimmen könnten und sich ausschließen, ist eine unserer Annahmen falsch.</li>
+      <li><b>Die Sicherheit der Fachleute.</b> Die Frage „Was gilt in Ihrem Feld als so sicher, dass niemand es mehr prüft?" fördert zuverlässig Kandidaten zutage.</li>
+    </ul>
+    <h5>Zweitens: Sichtweisen, die wir strukturell nicht haben</h5>
+    <ul>
+      <li>Einladen, wer weder in der Zunft noch im Milieu ist: eine Pflegekraft, ein Landwirt, eine Zollbeamtin, eine Sechzehnjährige, jemand aus Lagos oder Jakarta. Nicht als Folklore, sondern weil der blinde Fleck eines deutschen Foresight-Kreises struktureller Natur ist.</li>
+      <li>Die historische Variante: lesen, was man 1975 über 1995 dachte, und nicht die einzelnen Irrtümer sammeln, sondern den gemeinsamen Grund, warum alle dasselbe übersahen. Der Grund ist übertragbar, die Irrtümer sind es nicht.</li>
+    </ul>
+    <h5>Drittens: Verfahren, die das Undenkbare erzwingen</h5>
+    <ul>
+      <li><b>Die Umkehrfrage.</b> Nicht „was könnte kommen", sondern „was müsste eintreten, damit dieses Projekt 2031 peinlich aussieht".</li>
+      <li><b>Die Verbotsliste.</b> Jeder nennt eine Entwicklung, die er für so abwegig hält, dass er sich schämt, sie zu nennen. Nur gesammelt, nicht diskutiert. Die Scham ist der Filter, der das Unbekannte versteckt.</li>
+      <li><b>Der Ausschluss der Gegenwart.</b> Ein Durchgang, in dem keine heutige Institution, kein heutiges Unternehmen und kein heutiger Begriff vorkommen darf.</li>
+    </ul>
+    <h5>Die Grenze, ehrlich</h5>
+    <p>Keiner dieser Wege findet das echte Unbekannte. Sie verkleinern die Zone. Deshalb braucht das Projekt ein Irrtumsprotokoll und darf kein Vollständigkeitsversprechen geben. Für die Maschine gilt eine eigene Grenze: Sie kann nicht überrascht werden, weil sie Vorhandenes neu kombiniert.</p>
+    <div class="wkq">Quelle: Verfahrens-Werkstattnotiz v1, Abschnitt 3. Nichts davon ist beschlossen.</div>
+  </div>
+</details>
+
   <h3>Woran die Einladung nicht scheitern soll</h3>
   <p>Wenn die vier Motive im Blatt stehen, bestätigen die Beiträge nur, was wir ohnehin vermuten. Deshalb stehen die vier Pfeiler und die fünf Brüche im Einladungstext und nicht im Formular. Sie sind der Appetizer, nicht das Raster. Das Blatt selbst fragt offen: Woran knüpfst du an? Einsortiert wird später und von uns, und was sich nicht zuordnen lässt, lesen wir zuerst.</p>
 
@@ -273,6 +414,23 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
     <p class="mini"><b>Wie kommt herein, was in keine Richtung passt?</b> Eine gerichtete Einladung hat einen Preis: Was von außerhalb der bekannten Brüche kommt, kann so nie hereinkommen. Das ist die Frage an alle, die zu Wild Cards gearbeitet haben.</p>
   </div>
   <p class="mini" style="margin-top:12px">Wann die Szenariotechnik festgelegt wird: erst in Schritt 7 und nicht vorher. Mit wie vielen Szenariokreuzen oder welcher anderen Technik gearbeitet wird, lässt sich heute nicht sagen.</p>
+
+<div class="fragen">
+<h4>Fragen zu Kapitel 4</h4>
+<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<div class="frage">
+<label for="f4a">Wie viele Runden dieses Kreises kann sich das Projekt leisten?<span class="warum">Diese Zahl steht in keinem unserer Papiere. Ohne sie wird aus dem Verfahren ein offenes Fass.</span></label>
+<textarea id="f4a" data-frage="4a" rows="2"></textarea>
+</div>
+<div class="frage">
+<label for="f4b">Wer soll eingeladen werden, über die Zunft hinaus, und wer verdichtet am Ende?<span class="warum">Beides ist offen, und beides entscheidet mit, was herauskommt.</span></label>
+<textarea id="f4b" data-frage="4b" rows="2"></textarea>
+</div>
+<div class="frage">
+<label for="f4c">Wie kommt herein, was in keine Richtung passt?<span class="warum">Eine gerichtete Einladung hat einen Preis. Das ist die Frage an alle, die zu Wild Cards gearbeitet haben.</span></label>
+<textarea id="f4c" data-frage="4c" rows="2"></textarea>
+</div>
+</div>
 </section>
 
 <!-- 5 WERKZEUGKASTEN -->
@@ -316,9 +474,58 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
     <div class="card"><span class="tag">Grenze</span><h4>Das Begründungsloch</h4><div class="mini">Zukünfte lassen sich mit dem Vokabular von heute nicht genau beschreiben. Feld 8 des Blattes fragt deshalb ausdrücklich danach, wofür das Wort fehlt.</div></div>
   </div>
 
+  
+<details class="werkstatt" id="wk-loch">
+  <summary>Werkstatt öffnen: Das Begründungsloch, und vier Umgangsweisen damit</summary>
+  <div class="wk">
+    <p>Aus streng wissenschaftlicher Sicht bleibt ein Loch: Wir beschreiben Zukünfte mit dem Vokabular von heute. Begriffe tragen die Struktur der Gegenwart in sich. Eine wirklich andere Zukunft wird dadurch systematisch zu zahm beschrieben. Wer 1900 das Jahr 2000 schilderte, hatte kein Wort für Datenschutz, Plattform oder Klimaneutralität; er schrieb vom Fernsprecher, den man mit sich trägt, und traf das Gerät, nicht die Welt, die daraus wurde.</p>
+    <h5>Vier Umgangsweisen, keine schließt das Loch</h5>
+    <ul>
+      <li><b>Den Fehler ausschreiben und seine Richtung nennen.</b> Kein Haftungsausschluss, sondern ein Befund mit Vorzeichen: Wir unterschätzen die Fremdheit, wir überschätzen sie nie. Das ist historisch prüfbar.</li>
+      <li><b>Mechanismen beschreiben statt Oberflächen.</b> Begriffe für Oberflächen altern schnell, Begriffe für Verhältnisse langsam. Abhängigkeit, Bindung, Kosten, Zugang und die Frage, wer entscheidet, tragen weiter als jede Technikbezeichnung.</li>
+      <li><b>Dem Loch ein Feld geben.</b> Feld 8 des Blattes. Wo jemand merkt, dass die Sprache nicht reicht, ist das ein Signal und kein Mangel. Wortschöpfungen sind erlaubt und werden als solche gekennzeichnet.</li>
+      <li><b>Die historische Eichung.</b> Vergangene Zukunftsbeschreibungen daraufhin lesen, wie sie gescheitert sind, nicht um im Nachhinein klug zu sein, sondern um die Größe des systematischen Fehlers zu schätzen.</li>
+    </ul>
+    <h5>Der Punkt, der das Loch am weitesten schließt</h5>
+    <p>Deshalb arbeitet dieses Projekt mit Rissen und nicht mit Bildern. Ein Riss lässt sich in der Sprache von heute beschreiben, weil das Fundament von heute ist. Der Neubau lässt sich nicht beschreiben. Der Anspruch lautet nicht „wir beschreiben 2045", sondern „wir beschreiben, was schon liegt, und wir markieren, wo unsere Sprache aufhört". Das erste ist haltbar, das zweite wäre es nicht.</p>
+    <div class="wkq">Quelle: Verfahrens-Werkstattnotiz v1, Abschnitt 4.</div>
+  </div>
+</details>
+
+<details class="werkstatt" id="wk-beleg">
+  <summary>Werkstatt öffnen: Fünf Sorten der Überraschung, mit Fällen aus den letzten Jahrzehnten</summary>
+  <div class="wk">
+    <p>Damit die Arbeit nicht als Spinnerei abgetan wird, braucht sie konkrete Fälle, in denen etwas eintrat, das kurz zuvor als undenkbar oder sehr fern galt. Der eigentliche Ertrag ist aber nicht die Liste, sondern die <b>Sorte</b> der Überraschung.</p>
+    <table class="wktab">
+      <tr><th>Sorte</th><th>Was überrascht</th><th>Fälle, noch zu belegen</th></tr>
+      <tr><td><b>Tempo</b></td><td>Es war erwartet, aber nicht so schnell</td><td>Preisverfall der Photovoltaik gegenüber den Agenturprognosen; Verbreitung generativer Sprachmodelle ab Ende 2022; Entwicklungszeit der mRNA-Impfstoffe</td></tr>
+      <tr><td><b>Akteur</b></td><td>Niemand hatte diesen Akteur auf der Liste</td><td>Eine Schülerin vor dem Reichstag in Stockholm 2018 und daraus eine weltweite Bewegung binnen eines Jahres; ein einzelnes Containerschiff blockiert 2021 den Suezkanal</td></tr>
+      <tr><td><b>Umschlag</b></td><td>Eine jahrzehntelang blockierte Entscheidung kippt in Tagen</td><td>Deutscher Atomausstieg nach Fukushima 2011; energiepolitische Wende 2022 mit LNG-Terminals in Rekordzeit</td></tr>
+      <tr><td><b>Rückkehr</b></td><td>Etwas Erledigtes kommt zurück</td><td>Großangelegter Krieg in Europa 2022; zweistellige Inflationsnähe; Grenzschließungen im Schengenraum 2020</td></tr>
+      <tr><td><b>Schwelle</b></td><td>Eine physische Grenze wird zur politischen Tatsache</td><td>Niedrigwasser am Rhein 2018 und 2022 mit Folgen für Lieferketten; negativer Ölpreis im April 2020</td></tr>
+    </table>
+    <p><b>Achtung, und das ist keine Floskel.</b> Jede Zeile ist noch zu belegen. Sie braucht vor jeder Verwendung eine Quelle für die Aussage, dass die Sache vorher als unmöglich galt. Ohne diesen Nachweis ist die Liste wertlos, denn im Nachhinein wirkt alles vorhersehbar. Dazu fehlt die Gegenliste: was groß angekündigt wurde und nie kam.</p>
+    <p><b>Wozu sie im Verfahren dient.</b> Sie ist der Prüfstein für die Kuriosa. Ähnelt ein Beitrag einer dieser fünf Sorten, ist er kein Spinnerei-Verdacht, sondern ein Kandidat.</p>
+    <div class="wkq">Quelle: Verfahrens-Werkstattnotiz v1, Abschnitt 5. Die Fälle sind unbelegt und dürfen so nicht veröffentlicht zitiert werden.</div>
+  </div>
+</details>
+
   <div class="liefer" style="margin-top:20px;border-left:4px solid #F4C013">
     <b>Der Stand, ehrlich.</b> Die Prüfliste ist noch nie gelaufen. Kein Motiv hat sie durchlaufen, keine Quelle ist an ihr gemessen worden. Schritt 3 steht aus. Alles auf dieser Seite ist damit Werkzeug und noch kein Ergebnis.
   </div>
+
+<div class="fragen">
+<h4>Fragen zu Kapitel 5</h4>
+<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<div class="frage">
+<label for="f5a">Welche der sechs Prüffragen würdest du streichen, und welche fehlt?<span class="warum">Die Liste ist noch nie gelaufen. Jetzt ist der billigste Zeitpunkt, sie zu ändern.</span></label>
+<textarea id="f5a" data-frage="5a" rows="2"></textarea>
+</div>
+<div class="frage">
+<label for="f5b">Der Maßstab ist eine Setzung. Greif ihn an.<span class="warum">Würde und Fortbestand der Existenzweise. Wer den Fortbestand zum Maß macht, kann zum Bewahrer werden.</span></label>
+<textarea id="f5b" data-frage="5b" rows="2"></textarea>
+</div>
+</div>
 </section>
 
 
@@ -341,6 +548,19 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
     <div class="cap">Kumli ballt bei Foresight-Methodik, Gesundheit und KI; die Bibliothek bei Zukunftsforschung und Methodik, deutschem Standort und Staat, planetaren Grenzen und Stadt. Die geteilte Leerstelle ist die fragmentierte Resilienz, Feld ④.</div>
   </div>
   <p class="verif"><b>Verifikation, offengelegt.</b> Von den 204 Titeln sind 131 am Dokument selbst geprüft und 46 bibliografisch nach Autor, Titel und Jahr. Die übrigen 27 tragen einen schwächeren Vermerk: 11 extern recherchiert, 8 aus dem Kumli-Register übernommen, 4 als Scan mit gesichertem Titel, 3 eigenes Material, 1 Platzhalter. Jede Zeile trägt ihren Stand in der Spalte Verifikationsstand, nachlesbar im Explorer weiter unten.</p>
+
+<div class="fragen">
+<h4>Fragen zu Kapitel 6</h4>
+<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<div class="frage">
+<label for="f6a">Welche Quelle fehlt im Atlas, und warum gehört sie hinein?<span class="warum">204 Titel, und wir wissen, dass die Auswahl unsere eigene Handschrift trägt.</span></label>
+<textarea id="f6a" data-frage="6a" rows="2"></textarea>
+</div>
+<div class="frage">
+<label for="f6b">Wo ist der Atlas Echokammer?<span class="warum">Fragestellung und Methode ruhen stark auf unserem eigenen Kosmos. Wo fällt es dir auf?</span></label>
+<textarea id="f6b" data-frage="6b" rows="2"></textarea>
+</div>
+</div>
 </section>
 
 <!-- 5 RASTER -->
@@ -360,6 +580,19 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
     <div class="card" style="border-left:4px solid var(--green)"><span class="tag" style="color:var(--green)">8 · Linse</span><h4>Interessenlage und Güte</h4><div class="mini">Aus welchem Interesse, wie belastbar?</div></div>
     <div class="card" style="background:var(--soft);border:1px dashed #cfe0f2"><h4>Zwei Durchgänge</h4><div class="mini">Erst neutral-deskriptiv (Kriterien 1 bis 6), dann die Grundrisse-Prüfung über die zwei Linsen. Der zweite Durchgang beantwortet, was uns unterscheidet.</div></div>
   </div>
+
+<div class="fragen">
+<h4>Fragen zu Kapitel 7</h4>
+<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<div class="frage">
+<label for="f7a">Sechs beschreibende Kriterien, zwei Linsen. Was fehlt, was ist zu viel?<span class="warum">Das Raster entscheidet, was die Auswertung überhaupt sehen kann.</span></label>
+<textarea id="f7a" data-frage="7a" rows="2"></textarea>
+</div>
+<div class="frage">
+<label for="f7b">Voller Korpus von 204 Quellen in beiden Durchgängen, oder ein priorisierter Kern?<span class="warum">Eine Frage des Aufwands, und eine offene Frage fürs Kern-Team.</span></label>
+<textarea id="f7b" data-frage="7b" rows="2"></textarea>
+</div>
+</div>
 </section>
 
 <!-- 6 FELD 4 -->
@@ -388,6 +621,19 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
     <p><b>Der Titel, und warum er selbstkritisch ist.</b> Weil keine Studie dieses Feld für uns zeichnet, muss GRUNDRISSE es selbst zeichnen, wenn die richtungslose Möglichkeit im Bild bleiben soll. Die ehrliche Kehrseite: Das leere Feld könnte an der Welt liegen, oder an uns Foresightern. Genau das prüft die Analyse, statt es vorwegzunehmen.</p>
     <p><b>Konsequenz.</b> Deshalb bleibt das Kreuz eine Quellen-Landkarte und wird sauber vom Szenario-Rahmen getrennt. Ausgewertet wird auf dem offengelegten 8-Kriterien-Raster, nicht auf einem geliehenen Kreuz. Ob am Ende ein Kreuz steht oder ein Morphologiekasten aus zwei Kreuzen, ist offen und Gegenstand des Feld-④-Papiers.</p>
   </div>
+
+<div class="fragen">
+<h4>Fragen zu Kapitel 8</h4>
+<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<div class="frage">
+<label for="f8a">Liegt das leere Feld an der Welt oder an uns Foresightern?<span class="warum">Beides ist möglich. Genau das soll die Analyse prüfen, statt es vorwegzunehmen.</span></label>
+<textarea id="f8a" data-frage="8a" rows="2"></textarea>
+</div>
+<div class="frage">
+<label for="f8b">Ein Szenariokreuz oder zwei?<span class="warum">Bleibt es beim eigenen Werteraster als Deutungsachse, oder legen wir die geopolitisch-klimatische Achse als Strukturtest darüber?</span></label>
+<textarea id="f8b" data-frage="8b" rows="2"></textarea>
+</div>
+</div>
 </section>
 
 <!-- 7 ERGEBNISSE -->
@@ -401,6 +647,15 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
     <div class="card"><h4>Das leere Feld als Spiegel</h4><div class="mini">Die Lückenkarte zeigt nicht nur die blinden Flecken des Feldes, sondern unsere eigenen. Das mittlere, richtungslose Durchhalten fällt der Zunft schwer, weil es sich schlecht erzählen lässt.</div></div>
     <div class="card"><h4>Prüfergebnis der Setzungen</h4><div class="mini">In drei Ausgängen: bestätigt, geschärft oder verschoben. Der Zugang ist erst dann redlich, wenn auch der dritte Ausgang möglich bleibt.</div></div>
   </div>
+
+<div class="fragen">
+<h4>Fragen zu Kapitel 9</h4>
+<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<div class="frage">
+<label for="f9a">Der dritte Ausgang heißt verschoben. Woran würdest du erkennen, dass er eingetreten ist?<span class="warum">Der Zugang ist erst dann redlich, wenn wir die eigene Setzung fallen lassen können.</span></label>
+<textarea id="f9a" data-frage="9a" rows="2"></textarea>
+</div>
+</div>
 </section>
 
 <!-- 8 DISKUSSION -->
@@ -468,7 +723,25 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
   </table>
   <div class="note" style="margin-top:16px"><b>Offen benannt, Echokammer-Signal:</b> Fragestellung und Methode ruhen stark auf unserem eigenen Kosmos, Werk und Kern. Deshalb gewichtet der Atlas bewusst das Außen, den Welt-Kanon und den Kumli-Strom, um die eigene Sicht zu prüfen statt zu spiegeln.</div>
   <p class="mini" style="margin-top:10px"><b>Verifikation:</b> 131 Bibliothekstitel am PDF geprüft, 46 Kanon-Titel bibliografisch nach Autor, Titel und Jahr. Was nicht belegt ist, trägt die Marke Vermutung oder [prüfen].</p>
+
+<div class="fragen">
+<h4>Frage zu Kapitel 12</h4>
+<p class="fh">Antworten bleiben in deinem Browser. Unten sammelt eine Leiste alles, was du geschrieben hast, zum Kopieren.</p>
+<div class="frage">
+<label for="f12a">Wo ist auf dieser Seite eine Herkunftsangabe falsch oder zu großzügig?<span class="warum">Jede wesentliche Aussage trägt ihre Herkunft. Wenn eine nicht stimmt, ist das der wichtigste Fund.</span></label>
+<textarea id="f12a" data-frage="12a" rows="2"></textarea>
+</div>
+</div>
 </section>
+
+
+<div id="sammeln">
+  <b id="sammelzahl">0 Antworten</b>
+  <span>Sie liegen nur in deinem Browser.</span>
+  <button id="kopieren" type="button">Alle Antworten kopieren</button>
+  <button id="leeren" class="leer" type="button">Leeren</button>
+  <span id="sammelinfo"></span>
+</div>
 
 </main>
 <footer><div class="wrap">
@@ -565,6 +838,81 @@ function render(){
 document.querySelectorAll('#tbl th').forEach(th=>th.onclick=()=>{const k=th.dataset.k;if(sortK===k)sortDir*=-1;else{sortK=k;sortDir=1;}render();});
 render();
 drawCharts();
+</script>
+<script>
+
+/* ---- Fragen: Antworten merken, sammeln, kopieren ---- */
+(function(){
+  var SCHL = "grundrisse-antworten-v1";
+  function laden(){ try{ return JSON.parse(localStorage.getItem(SCHL)||"{}"); }catch(e){ return {}; } }
+  function sichern(o){ try{ localStorage.setItem(SCHL, JSON.stringify(o)); }catch(e){} }
+  var stand = laden();
+
+  function felder(){ return Array.prototype.slice.call(document.querySelectorAll("textarea[data-frage]")); }
+
+  function zaehlen(){
+    var n = felder().filter(function(t){ return t.value.trim() !== ""; }).length;
+    var bar = document.getElementById("sammeln");
+    if(!bar) return;
+    if(n>0){ bar.classList.add("an"); }else{ bar.classList.remove("an"); }
+    var z = document.getElementById("sammelzahl");
+    if(z) z.textContent = n + (n===1 ? " Antwort" : " Antworten");
+  }
+
+  function text(){
+    var aus = ["Antworten zur GRUNDRISSE-Landkarte", ""];
+    felder().forEach(function(t){
+      if(t.value.trim()==="") return;
+      var lab = document.querySelector('label[for="'+t.id+'"]');
+      var frage = lab ? lab.childNodes[0].textContent.trim() : t.getAttribute("data-frage");
+      var kap = t.closest("section");
+      var h2 = kap ? kap.querySelector("h2") : null;
+      var kaptitel = "";
+      if(h2){
+        var num = h2.querySelector(".num");
+        var nr = num ? num.textContent.trim() : "";
+        var rest = h2.textContent.trim();
+        if(nr && rest.indexOf(nr)===0) rest = rest.slice(nr.length).trim();
+        kaptitel = (nr ? "Kapitel " + nr + " · " : "") + rest;
+      }
+      aus.push(kaptitel);
+      aus.push("F: " + frage);
+      aus.push("A: " + t.value.trim());
+      aus.push("");
+    });
+    aus.push("Stand: " + new Date().toLocaleString("de-DE"));
+    return aus.join("\n");
+  }
+
+  document.addEventListener("DOMContentLoaded", function(){
+    felder().forEach(function(t){
+      var k = t.getAttribute("data-frage");
+      if(stand[k]) t.value = stand[k];
+      t.addEventListener("input", function(){
+        stand[k] = t.value; sichern(stand); zaehlen();
+      });
+    });
+    zaehlen();
+
+    var kn = document.getElementById("kopieren");
+    if(kn) kn.addEventListener("click", function(){
+      var t = text();
+      var fertig = function(){ var i=document.getElementById("sammelinfo");
+        if(i){ i.textContent = "kopiert, jetzt in eine Mail einfügen"; setTimeout(function(){ i.textContent=""; },4000);} };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(fertig, function(){ window.prompt("Zum Kopieren markieren:", t); });
+      } else { window.prompt("Zum Kopieren markieren:", t); }
+    });
+
+    var ln = document.getElementById("leeren");
+    if(ln) ln.addEventListener("click", function(){
+      if(!window.confirm("Alle eigenen Antworten auf dieser Seite löschen?")) return;
+      felder().forEach(function(t){ t.value=""; });
+      stand = {}; sichern(stand); zaehlen();
+    });
+  });
+})();
+
 </script>
 </body>
 </html>
