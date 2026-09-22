@@ -71,6 +71,7 @@ p{margin:10px 0}
 .rueckbox li{font-size:.92rem;line-height:1.6;margin-bottom:6px}
 .rueckbox .warn{border-top:1px solid var(--line);padding-top:10px;margin-top:12px;color:var(--grey)}
 #sammeln a.adr{color:#fff;text-decoration:underline}
+#sammelinfo.warnung{background:#F4C013;color:#17140F;padding:4px 10px;border-radius:5px;font-weight:600}
 .vbild{margin:22px 0 6px;border:1px solid var(--line);background:var(--paper);padding:16px 14px 10px}
 .vbild svg{width:100%;height:auto;display:block}
 .vbild figcaption{font-size:.86rem;color:var(--grey);line-height:1.5;margin-top:10px}
@@ -1393,11 +1394,16 @@ drawCharts();
       var adresse = "burmeister@foresightlab.de";
       var kurz = encodeURIComponent(koerper);
       var info = document.getElementById("sammelinfo");
-      if(kurz.length > 1800){
-        var hinweis = "Die Antworten sind lang. Sie liegen in der Zwischenablage, bitte hier einfügen.\n\n";
+      if(kurz.length > 12000){
+        var hinweis = "ACHTUNG, DIESE MAIL IST NOCH LEER.\n\n"
+          + "Die Antworten sind zu lang für die automatische Übernahme. Zwei Wege:\n"
+          + "1. Sie liegen in der Zwischenablage. Hier unter diese Zeile einfügen, dann senden.\n"
+          + "2. Oder diese Mail verwerfen, auf der Seite Als Datei sichern drücken und die Datei anhängen.\n\n"
+          + "-------- hier einfügen --------\n\n";
         if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(koerper); }
-        if(info){ info.textContent = "kopiert, bitte in die Mail einfügen";
-                  setTimeout(function(){ info.textContent=""; },6000); }
+        if(info){ info.innerHTML = "<b>Die Mail ist noch leer.</b> Der Text liegt in der Zwischenablage, bitte in die Mail einfügen, oder Als Datei sichern und anhängen.";
+                  info.classList.add("warnung");
+                  setTimeout(function(){ info.textContent=""; info.classList.remove("warnung"); },20000); }
         window.location.href = "mailto:" + adresse + "?subject=" + encodeURIComponent(betreff)
           + "&body=" + encodeURIComponent(hinweis);
       } else {
