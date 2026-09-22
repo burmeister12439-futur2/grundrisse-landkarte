@@ -737,8 +737,9 @@ footer{padding:30px 0 60px;color:var(--grey);font-size:13px}
 
 <div id="sammeln">
   <b id="sammelzahl">0 Antworten</b>
-  <span>Sie liegen nur in deinem Browser.</span>
+  <span>Sie liegen nur in deinem Browser, bis du sie schickst.</span>
   <button id="kopieren" type="button">Alle Antworten kopieren</button>
+  <button id="mailen" type="button">Als Mail senden</button>
   <button id="leeren" class="leer" type="button">Leeren</button>
   <span id="sammelinfo"></span>
 </div>
@@ -902,6 +903,26 @@ drawCharts();
       if(navigator.clipboard && navigator.clipboard.writeText){
         navigator.clipboard.writeText(t).then(fertig, function(){ window.prompt("Zum Kopieren markieren:", t); });
       } else { window.prompt("Zum Kopieren markieren:", t); }
+    });
+
+    var mn = document.getElementById("mailen");
+    if(mn) mn.addEventListener("click", function(){
+      var koerper = text();
+      var betreff = "Rückmeldung zur GRUNDRISSE-Landkarte";
+      var adresse = "burmeister@foresightlab.de";
+      var kurz = encodeURIComponent(koerper);
+      var info = document.getElementById("sammelinfo");
+      if(kurz.length > 1800){
+        var hinweis = "Die Antworten sind lang. Sie liegen in der Zwischenablage, bitte hier einfügen.\n\n";
+        if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(koerper); }
+        if(info){ info.textContent = "kopiert, bitte in die Mail einfügen";
+                  setTimeout(function(){ info.textContent=""; },6000); }
+        window.location.href = "mailto:" + adresse + "?subject=" + encodeURIComponent(betreff)
+          + "&body=" + encodeURIComponent(hinweis);
+      } else {
+        window.location.href = "mailto:" + adresse + "?subject=" + encodeURIComponent(betreff)
+          + "&body=" + kurz;
+      }
     });
 
     var ln = document.getElementById("leeren");
