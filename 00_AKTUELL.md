@@ -8,7 +8,11 @@
 
 **Stand:** Repositorium der öffentlichen Landkarte, auf GitHub seit dem 03.09.2026 als `grundrisse-landkarte`. Der lokale Ordner heißt weiterhin `grundrisse-2045`. Live unter https://burmeister12439-futur2.github.io/grundrisse-landkarte/
 
-**Geltende Fassung der Seite:** `index.html`, Stand 22.09.2026. Sie trägt die am 21.09.2026 korrigierte Leitfrage über die Ordnung, darunter die vier Motive auf einer Ebene, den offen genannten Maßstab und die Pflichtangabe zu Weiche und Unumkehrbarkeit. Am 22.09.2026 ist der letzte Rest der alten Formulierung aus dem Herkunftsnachweis in Abschnitt 9 entfernt worden.
+**Geltende Fassung der Seite:** `index.html`, Stand 22.09.2026, abends, Commit `a44df61`. Aufbau nach der von Klaus beschlossenen Gliederung **A bis I plus Anhang**, abgenommen von HAL mit grünem Votum zum Entwurf `c51afd3`. Begriffe: Szenarien 2045 plus, Grundriss-Kandidat. Zentrales Endprodukt ist die Karte der Grundrisse 2045 in G. Neue Wertschöpfungsmuster laufen als Querschnittsdimension durch C bis H. Offen und ans Kern-Team verwiesen: vier oder sechs Pfeiler, benannt in Abschnitt I.
+
+**Nur eine HTML gilt.** Im Hauptordner liegt allein `index.html`. `index-neu.html`, `entwurf-a-bis-i.html` und `fragen.html` sind Weiterleitungen von je rund einem Kilobyte auf die Hauptadresse; ihre ursprünglichen Dateien liegen im `_archiv`. So zeigt kein verschickter Verweis ins Leere, und es steht keine zweite Vollfassung neben der geltenden.
+
+**Verschickt wird nur die Hauptadresse.** Die frühere Einstiegsseite `fragen.html` entfällt; die Fragen ans Kern-Team stehen jetzt in der Landkarte selbst, jeweils an ihrem Abschnitt.
 
 **Inhaltliche Heimat:** `lab-aktuell/Projekte/D2030/Grundrisse_2045`. Dort liegen die DNA, das Konzept, die Quellen und das Register, hier nur die veröffentlichte Landkarte. Die Sache führt `grundrisse_dna.md` in der inhaltlichen Heimat, in Kraft seit dem 21.09.2026. Skill: `d2030-szenarien`.
 
@@ -16,6 +20,6 @@
 
 ## Nächste Aktion
 
-Schritt 3, die Probe am eigenen Bestand: die vier Motive und die vorhandenen Quellen durch die Prüfliste der DNA schicken, bevor jemand eingeladen wird. Bisher hat kein Motiv die Prüfung durchlaufen. Die Seite wird erst wieder geändert, wenn diese Probe ein Ergebnis hat.
+Die Frage vier oder sechs Pfeiler im Kern-Team entscheiden und die DNA danach nachziehen. Dann Schritt 1 des Verfahrens: Das Kern-Team bestätigt Leitfrage, DNA und die Grundriss-Kandidaten. Danach Schritt 3, die Probe am eigenen Bestand, bevor jemand eingeladen wird.
 
 Daneben offen: Issue 3, „P3 · Die Team-Seite lesen".

@@ -140,7 +140,6 @@ Fassung der Seite. Beides ist zusammengeführt. Das alte öffentliche liegt als
 Die Team-Seite läuft über GitHub Pages aus `main`:
 
     https://burmeister12439-futur2.github.io/grundrisse-landkarte/
-    https://burmeister12439-futur2.github.io/grundrisse-landkarte/fragen.html
 
 Der Zugang läuft über einen fine-grained Token nur für dieses Repositorium,
 abgelegt in `.claude-local/gh_token` und von `.gitignore` ausgeschlossen. Der

@@ -61,10 +61,11 @@ offengelegten 8-Kriterien-Raster.
 ## Die Seite im Netz
 
     https://burmeister12439-futur2.github.io/grundrisse-landkarte/
-    https://burmeister12439-futur2.github.io/grundrisse-landkarte/fragen.html
 
-`fragen.html` ist die Einstiegsseite fürs Kern-Team: vier Lesefragen und der
-Weg in die Diskussionsgrundlage. Sie wird verschickt, nicht die Hauptseite.
+Das ist die eine Adresse, die verschickt wird. Seit dem 22.09.2026 trägt die
+Hauptseite den Aufbau A bis I plus Anhang und die Fragen ans Kern-Team stehen
+darin, jeweils an dem Abschnitt, zu dem sie gehören. Die frühere Einstiegsseite
+`fragen.html` liegt im `_archiv`; ihre Adresse leitet auf die Hauptseite weiter.
 
 ## Vor jeder Änderung
 
