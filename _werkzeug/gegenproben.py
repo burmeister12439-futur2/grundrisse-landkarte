@@ -70,6 +70,42 @@ def kaputt_5b(s):
            "das Antwortfeld in Abschnitt A per CSS-Klasse versteckt (faengt nur die Browserpruefung)"
 
 
+# --- Faelle fuer die Browserpruefung ---------------------------------------
+# Die statische Pruefung liest kein Stylesheet und kennt keine Fensterbreite.
+# Diese Faelle gehen deshalb an pruefe_browser.js.
+
+BREITE_TABELLE = ("""
+<section id="probe"><div class="wrap">
+<h2>Gegenprobe</h2>
+<div style="%s">
+<table style="min-width:900px;border-collapse:collapse">
+<tr><th>Spalte eins</th><th>Spalte zwei</th><th>Spalte drei</th><th>Spalte vier</th></tr>
+<tr><td>Wert</td><td>Wert</td><td>Wert</td><td>Wert am rechten Rand</td></tr>
+</table>
+</div>
+</div></section>
+""")
+
+
+def kaputt_6(s):
+    """Breite Tabelle in einem bedienbaren Scrollkasten. Muss gruen bleiben."""
+    kasten = BREITE_TABELLE % "overflow-x:auto"
+    return s.replace("</body>", kasten + "</body>", 1), \
+           "eine 900px breite Tabelle in einem Kasten mit overflow-x:auto eingesetzt"
+
+
+def kaputt_7(s):
+    """Dieselbe Tabelle in einem abschneidenden Kasten. Muss rot werden."""
+    kasten = BREITE_TABELLE % "overflow-x:hidden"
+    return s.replace("</body>", kasten + "</body>", 1), \
+           "dieselbe Tabelle in einem Kasten mit overflow-x:hidden eingesetzt"
+
+
+BROWSERFAELLE = [("5b per CSS-Klasse verstecktes Feld", kaputt_5b, "muss rot werden"),
+                 ("6 breite Tabelle im Scrollkasten", kaputt_6, "muss gruen bleiben"),
+                 ("7 dieselbe Tabelle in overflow-x:hidden", kaputt_7, "muss rot werden")]
+
+
 FAELLE = [("1 kaputte Verschachtelung", kaputt_1),
           ("2 zwei entfernte Felder", kaputt_2),
           ("3 Feld ohne data-frage", kaputt_3),
@@ -105,15 +141,19 @@ def main():
             alle_rot = False
         print()
 
-    s, was = kaputt_5b(roh)
-    p5b = os.path.join(ordner, "gegenprobe_5b.html")
-    io.open(p5b, "w", encoding="utf-8").write(s)
     print("=" * 74)
-    print("GEGENPROBE 5b per CSS-Klasse verstecktes Feld")
-    print("   beschaedigt: %s" % was)
-    print("   Datei fuer die Browserpruefung: %s" % p5b)
-    print("   Aufruf: node _werkzeug/pruefe_browser.js %s" % p5b)
+    print("FAELLE FUER DIE BROWSERPRUEFUNG")
+    print("   Die statische Pruefung liest kein Stylesheet und kennt keine")
+    print("   Fensterbreite. Diese drei Dateien gehen deshalb an pruefe_browser.js.")
     print()
+    for name, fn, erwartung in BROWSERFAELLE:
+        s2, was = fn(roh)
+        pfad = os.path.join(ordner, "gegenprobe_%s.html" % name.split()[0])
+        io.open(pfad, "w", encoding="utf-8").write(s2)
+        print("   GEGENPROBE %s  (%s)" % (name, erwartung))
+        print("      veraendert: %s" % was)
+        print("      node _werkzeug/pruefe_browser.js %s" % pfad)
+        print()
 
     print("=" * 74)
     if alle_rot:

@@ -1,9 +1,10 @@
 {
- "_zweck": "Pruefprotokoll der Browserpruefung. Der Push-Haken vergleicht sha256 mit der Seite. Aendert sich die Seite, wird dieses Protokoll ungueltig und die Browserpruefung muss neu laufen.",
+ "_zweck": "Pruefprotokoll der Browserpruefung. Der Push-Haken vergleicht sha256 mit der Seite und pruefer_sha256 mit pruefe_browser.js. Aendert sich eines von beiden, wird dieses Protokoll ungueltig und die Browserpruefung muss neu laufen.",
  "seite": "index.html",
- "sha256": "42e35063386df11c9ac32e6ec22324dd07eb387cef3679e2e801a7a24fa0ba18",
+ "sha256": "12e2a615b6ebc2e5a94b0c8afa7b4c5660a54d68a4cfd6cea42ea9830c72e27e",
+ "pruefer_sha256": "9933555002732daf3c1fb8deef172d8def8897163fd4cadd41320cd39a83f4e3",
  "ergebnis": "bestanden",
  "befunde": [],
- "zeitpunkt": "2026-09-23T18:56:44.697Z",
+ "zeitpunkt": "2026-09-23T19:05:17.017Z",
  "werkzeug": "pruefe_browser.js"
 }

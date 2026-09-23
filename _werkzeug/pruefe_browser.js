@@ -23,6 +23,9 @@ const seite = process.argv[2];
 const protokoll = process.argv[3] || null;
 if (!seite || !fs.existsSync(seite)) { console.error('Seite fehlt: ' + seite); process.exit(1); }
 const sha = crypto.createHash('sha256').update(fs.readFileSync(seite)).digest('hex');
+// Der Pruefer haelt auch seinen eigenen SHA fest. Sonst bliebe ein altes gruenes
+// Protokoll gueltig, waehrend sich der Pruefer darunter geaendert hat.
+const pruefer_sha = crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex');
 
 const befunde = [];
 const zeile = (s) => console.log(s);
@@ -42,7 +45,8 @@ const befund = (s) => { console.log('   BEFUND  ' + s); befunde.push(s); };
 
   zeile('=' .repeat(74));
   zeile('BROWSERPRUEFUNG  ' + seite);
-  zeile('SHA-256  ' + sha);
+  zeile('SHA-256 Seite    ' + sha);
+  zeile('SHA-256 Pruefer  ' + pruefer_sha);
   zeile('='.repeat(74));
 
   zeile('\n1 Konsole und Skriptfehler');
@@ -161,10 +165,16 @@ const befund = (s) => { console.log('   BEFUND  ' + s); befunde.push(s); };
     // Ein Element, das in einem seitlich scrollbaren Kasten steckt, darf breiter
     // sein als der Schirm. Das ist bei der Quellentabelle Absicht. Gemeldet wird
     // nur, was ohne solchen Kasten hinausragt und damit die Seite selbst schiebt.
+    // Ein Element, das in einem seitlich scrollbaren Kasten steckt, darf breiter
+    // sein als der Schirm. Das ist bei der Quellentabelle Absicht, sie laesst
+    // sich im Kasten schieben. Zulaessig sind deshalb nur auto und scroll.
+    // overflow-x: hidden gilt nicht als Ausnahme, von Klaus am 23.09.2026
+    // gesetzt: es schneidet den Inhalt ab, ohne eine bedienbare Scrollmoeglich-
+    // keit zu geben. Was dort hinausragt, ist fuer den Leser schlicht weg.
     const imKasten = (e) => {
       for (let p = e.parentElement; p && p !== document.body; p = p.parentElement) {
         const ox = getComputedStyle(p).overflowX;
-        if (ox === 'auto' || ox === 'scroll' || ox === 'hidden') return true;
+        if (ox === 'auto' || ox === 'scroll') return true;
       }
       return false;
     };
@@ -189,8 +199,8 @@ const befund = (s) => { console.log('   BEFUND  ' + s); befunde.push(s); };
 
   if (protokoll) {
     fs.writeFileSync(protokoll, JSON.stringify({
-      _zweck: 'Pruefprotokoll der Browserpruefung. Der Push-Haken vergleicht sha256 mit der Seite. Aendert sich die Seite, wird dieses Protokoll ungueltig und die Browserpruefung muss neu laufen.',
-      seite: path.basename(seite), sha256: sha, ergebnis: ergebnis,
+      _zweck: 'Pruefprotokoll der Browserpruefung. Der Push-Haken vergleicht sha256 mit der Seite und pruefer_sha256 mit pruefe_browser.js. Aendert sich eines von beiden, wird dieses Protokoll ungueltig und die Browserpruefung muss neu laufen.',
+      seite: path.basename(seite), sha256: sha, pruefer_sha256: pruefer_sha, ergebnis: ergebnis,
       befunde: befunde, zeitpunkt: new Date().toISOString(),
       werkzeug: 'pruefe_browser.js'
     }, null, 1) + '\n', 'utf-8');

@@ -46,10 +46,28 @@ node _werkzeug/pruefe_browser.js index.html _werkzeug/browserpruefung.json
 
 Die Browserprüfung kann damit nicht auf demselben Rechner erzwungen werden.
 Damit sie trotzdem nicht still ausfallen kann, schreibt sie ein Protokoll mit
-dem SHA-256 der geprüften Seite. Der Haken lässt nur durch, was ein Protokoll
-zu genau diesem Stand hat. Jede Änderung an `index.html` macht das Protokoll
-ungültig, und der Push wird angehalten, bis die Browserprüfung neu gelaufen
-ist. Das ist die ehrliche Lösung: kein stilles Überspringen.
+zwei Fingerabdrücken: dem SHA-256 der geprüften Seite und dem SHA-256 von
+`pruefe_browser.js` selbst. Der Haken lässt nur durch, was zu beidem passt.
+Jede Änderung an `index.html` macht das Protokoll ungültig, und jede Änderung
+am Prüfer ebenso. Ohne den zweiten Fingerabdruck bliebe ein altes grünes
+Protokoll zu einer unveränderten Seite gültig, während sich der Prüfer
+darunter geändert hat. Das ist die ehrliche Lösung: kein stilles Überspringen.
+
+### Die mobile Ausnahme
+
+Ein Element darf breiter sein als der Schirm, wenn es in einem Kasten steckt,
+den man seitlich schieben kann. Das ist bei der Quellentabelle Absicht.
+Zulässig sind deshalb nur `overflow-x: auto` und `overflow-x: scroll`.
+`overflow-x: hidden` gilt nicht als Ausnahme, von Klaus am 23.09.2026 gesetzt:
+Es schneidet den Inhalt ab, ohne eine bedienbare Scrollmöglichkeit zu geben.
+Was dort hinausragt, ist für den Leser schlicht weg.
+
+Diese Verschärfung hat sofort einen Befund an der geltenden Seite gefunden.
+Das Szenariokreuz in Abschnitt C stand in einem Kasten mit `overflow:hidden`
+und war bei 390 Pixeln 409 Pixel breit. Die rechten 19 Pixel waren auf dem
+Telefon abgeschnitten und nicht erreichbar. Der Kasten ist jetzt
+`overflow-x:auto`, die abgerundeten Ecken bleiben, das Kreuz lässt sich
+schieben.
 
 ## Die Gegenproben
 
@@ -59,11 +77,15 @@ Eine Prüfung, die nur am heilen Stand grün zeigt, beweist nichts.
 python3 _werkzeug/gegenproben.py
 ```
 
-Fünf absichtlich beschädigte Kopien, jede muss rot werden: kaputte
-Verschachtelung, zwei entfernte Felder, Feld ohne `data-frage`, Feld ohne
-Label, per inline-CSS verstecktes Feld. Ein sechster Fall, das per CSS-Klasse
-versteckte Feld, wird erzeugt und der Browserprüfung übergeben, weil ihn die
-statische Prüfung nicht sehen kann.
+Fünf absichtlich beschädigte Kopien für die statische Prüfung, jede muss rot
+werden: kaputte Verschachtelung, zwei entfernte Felder, Feld ohne
+`data-frage`, Feld ohne Label, per inline-CSS verstecktes Feld.
+
+Drei weitere Kopien werden für die Browserprüfung erzeugt, weil die statische
+Prüfung kein Stylesheet liest und keine Fensterbreite kennt: das per
+CSS-Klasse versteckte Feld muss rot werden, eine 900 Pixel breite Tabelle in
+einem Kasten mit `overflow-x:auto` muss grün bleiben, und dieselbe Tabelle in
+einem Kasten mit `overflow-x:hidden` muss rot werden.
 
 ## Übertragung auf andere Projekte
 
