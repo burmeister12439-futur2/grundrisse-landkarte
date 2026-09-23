@@ -1,95 +1,54 @@
-# Werkzeug zur Seitenprüfung
+# Prüfung dieses Projekts
 
 **Stand:** 23.09.2026
 
+Die Prüfwerkzeuge liegen seit dem 23.09.2026 nicht mehr hier, sondern im
+gemeinsamen Prüfkern `webpruefer`. In diesem Ordner bleibt nur, was zu diesem
+Projekt gehört.
+
 | Datei | Wofür |
 |---|---|
-| `pruefe_seite.py` | Die statische Prüfung. Verschachtelung, Sichtbarkeit ohne Klick, Verdrahtung, Vollständigkeit gegen den Sollbestand, Leseblick, tote Sprungmarken, doppelte Kennungen. Kein Browser nötig. |
-| `sollbestand.json` | Wie viele Antwortfelder und Fragenblöcke je Abschnitt stehen müssen, und welche Bedienfelder es geben darf. Jede Seite braucht einen eigenen. |
-| `pruefe_browser.js` | Die Browserprüfung. Konsolenfehler, berechnete Sichtbarkeit, Diagramme, Quellen-Explorer, Sammelleiste, mobile Breite. Braucht Playwright. |
-| `browserpruefung.json` | Das Protokoll der letzten Browserprüfung, mit dem SHA-256 der geprüften Seite. |
-| `pruefe_protokoll.py` | Hält das Protokoll an die Seite. Passt der SHA nicht, ist die Prüfung ungültig. |
-| `gegenproben.py` | Beschädigt die Seite absichtlich und weist nach, dass die Prüfung anschlägt. |
-| `pre-push` | Der Haken. Erst die statische Prüfung, dann das Protokoll. Beides muss durch. |
+| `../_pruefprofil.json` | Was an dieser Seite geprüft wird und mit welcher Fassung des Kerns. |
+| `../pruefen.sh` | Der Anker. Findet den Kern, prüft seine Fassung, führt die Prüfungen aus. |
+| `browserpruefung.json` | Das Protokoll der letzten Browserprüfung, mit dem SHA-256 von Seite und Prüfer. |
+| `Archiv/` | Die bisherigen lokalen Prüferdateien. Abgelöst, nicht gelöscht. |
 
-## Warum es das gibt
-
-Am 22.09.2026 stand bei der Umschaltung auf die Gliederung A bis I ein
-schließendes `</details>` an der falschen Stelle. Die Fragen zu Abschnitt D
-lagen dadurch in einem zugeklappten Werkstatt-Fenster und waren für jeden
-Leser unsichtbar. Der Fehler stand einen Tag live und ist von keiner unserer
-Prüfungen gefunden worden, sondern von Beate Schulz-Montag beim Lesen.
-
-Der Grund: Alle Prüfungen haben gezählt. Fünf `<details>` zu fünf
-`</details>`, sechzehn Felder. Die Zahlen stimmten, die Position war falsch.
-
-**Der Grundsatz seither: Eine Zählung ist keine Prüfung.** Jede Zahl wird gegen
-einen hinterlegten Sollbestand gehalten, nicht gegen sich selbst.
-
-## Wie geprüft wird
-
-Zwei Schichten, weil keine allein reicht.
-
-**Statisch**, ohne Browser, läuft überall:
+## Aufruf
 
 ```
 cd ~/Documents/GitHub/grundrisse-2045
-python3 _werkzeug/pruefe_seite.py index.html
+./pruefen.sh
 ```
 
-**Im Browser**, braucht Playwright und läuft deshalb dort, wo Playwright liegt,
-nicht auf dem Rechner:
+Der Kern wird über `WEBPRUEFER`, `./_pruefer` oder den Nachbarordner
+`../webpruefer` gefunden. Kein fest verdrahteter persönlicher Pfad. Fehlt er
+oder trägt er eine andere Fassung als das Profil erwartet, bricht `pruefen.sh`
+laut ab, mit Rückgabe 2 und der Abhilfe im Klartext.
+
+Die Browserprüfung braucht Playwright und läuft dort, wo Playwright liegt:
 
 ```
-node _werkzeug/pruefe_browser.js index.html _werkzeug/browserpruefung.json
+node <kern>/pruefkern/pruefe_browser.js index.html _werkzeug/browserpruefung.json
 ```
 
-Die Browserprüfung kann damit nicht auf demselben Rechner erzwungen werden.
-Damit sie trotzdem nicht still ausfallen kann, schreibt sie ein Protokoll mit
-zwei Fingerabdrücken: dem SHA-256 der geprüften Seite und dem SHA-256 von
-`pruefe_browser.js` selbst. Der Haken lässt nur durch, was zu beidem passt.
-Jede Änderung an `index.html` macht das Protokoll ungültig, und jede Änderung
-am Prüfer ebenso. Ohne den zweiten Fingerabdruck bliebe ein altes grünes
-Protokoll zu einer unveränderten Seite gültig, während sich der Prüfer
-darunter geändert hat. Das ist die ehrliche Lösung: kein stilles Überspringen.
+## Die Ablösung, nachgewiesen
 
-### Die mobile Ausnahme
+Am 23.09.2026 sind alter und neuer Prüfer nebeneinander gelaufen. Die
+statische Prüfung lieferte am geltenden Stand Zeile für Zeile dieselbe
+Ausgabe, 36 Zeilen, ohne einen Unterschied. Die Browserprüfung ist im Kern
+bytegleich, SHA-256 `99335550…`. Alle Gegenproben schlagen auch mit dem Kern
+fehl. Erst danach sind die bisherigen Dateien ins `Archiv` gezogen. An
+`index.html` wurde dabei nichts geändert.
 
-Ein Element darf breiter sein als der Schirm, wenn es in einem Kasten steckt,
-den man seitlich schieben kann. Das ist bei der Quellentabelle Absicht.
-Zulässig sind deshalb nur `overflow-x: auto` und `overflow-x: scroll`.
-`overflow-x: hidden` gilt nicht als Ausnahme, von Klaus am 23.09.2026 gesetzt:
-Es schneidet den Inhalt ab, ohne eine bedienbare Scrollmöglichkeit zu geben.
-Was dort hinausragt, ist für den Leser schlicht weg.
+Dabei ist ein echter Fehler im Nachweis selbst aufgefallen: Die Gegenproben
+meldeten zunächst Rückgabe 1 ohne einen einzigen Befund, weil die beschädigten
+Kopien nicht im Profil standen und der Prüfer deshalb abbrach, statt zu
+prüfen. Eine rote Ampel aus dem falschen Grund ist kein Nachweis. Der Kern
+verlangt jetzt Rückgabe 1 **und** mindestens einen Befund.
 
-Diese Verschärfung hat sofort einen Befund an der geltenden Seite gefunden.
-Das Szenariokreuz in Abschnitt C stand in einem Kasten mit `overflow:hidden`
-und war bei 390 Pixeln 409 Pixel breit. Die rechten 19 Pixel waren auf dem
-Telefon abgeschnitten und nicht erreichbar. Der Kasten ist jetzt
-`overflow-x:auto`, die abgerundeten Ecken bleiben, das Kreuz lässt sich
-schieben.
+## Warum der Haken nicht die Absicherung ist
 
-## Die Gegenproben
-
-Eine Prüfung, die nur am heilen Stand grün zeigt, beweist nichts.
-
-```
-python3 _werkzeug/gegenproben.py
-```
-
-Fünf absichtlich beschädigte Kopien für die statische Prüfung, jede muss rot
-werden: kaputte Verschachtelung, zwei entfernte Felder, Feld ohne
-`data-frage`, Feld ohne Label, per inline-CSS verstecktes Feld.
-
-Drei weitere Kopien werden für die Browserprüfung erzeugt, weil die statische
-Prüfung kein Stylesheet liest und keine Fensterbreite kennt: das per
-CSS-Klasse versteckte Feld muss rot werden, eine 900 Pixel breite Tabelle in
-einem Kasten mit `overflow-x:auto` muss grün bleiben, und dieselbe Tabelle in
-einem Kasten mit `overflow-x:hidden` muss rot werden.
-
-## Übertragung auf andere Projekte
-
-Noch nicht geschehen und bewusst so. Erst wenn diese Gegenproben rot und der
-geltende Stand grün sind, wird daraus ein übertragbares Werkzeug. Jede andere
-Seite braucht dann einen eigenen `sollbestand.json`, weil ein Sollbestand
-genau die eine Seite beschreibt, für die er gilt.
+Der `pre-push`-Haken ruft nur `pruefen.sh` auf. Er wird nicht mit dem
+Repositorium übertragen und ist damit eine Bequemlichkeit, keine dauerhafte
+Absicherung. Die dauerhafte Absicherung ist der Aufruf von `pruefen.sh` dort,
+wo die Veröffentlichung entsteht.

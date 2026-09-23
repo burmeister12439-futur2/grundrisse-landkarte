@@ -1,0 +1,43 @@
+{
+  "_zweck": "Was an diesem Projekt geprueft wird und mit welcher Fassung des gemeinsamen Pruefkerns. Geaendert wird er nur, wenn die Seite absichtlich anders aussehen soll, und dann im selben Commit wie die Seite.",
+  "_stand": "23.09.2026, von Klaus gesetzt",
+  "profil_fassung": 1,
+  "projekt": "grundrisse-2045",
+  "pruefer": {
+    "repo": "webpruefer",
+    "fassung": "ceb566913320",
+    "_hinweis": "Die Fassung wird bewusst gehoben, nicht nebenbei. pruefen.sh bricht laut ab, wenn der vorgefundene Kern eine andere traegt."
+  },
+  "seiten": [
+    {
+      "datei": "index.html",
+      "browserpruefung": "voll",
+      "protokoll": "_werkzeug/browserpruefung.json",
+      "antwortfelder_gesamt": 23,
+      "antwortfelder_je_abschnitt": {
+        "a": 1,
+        "b": 3,
+        "c": 3,
+        "d": 3,
+        "e": 4,
+        "h": 3,
+        "i": 6
+      },
+      "fragenbloecke_je_abschnitt": {
+        "a": 0,
+        "b": 1,
+        "c": 1,
+        "d": 1,
+        "e": 1,
+        "h": 1,
+        "i": 2
+      },
+      "bedienfelder": {
+        "q": "Suchfeld des Quellen-Explorers",
+        "fHerk": "Filter Herkunft",
+        "fClus": "Filter Cluster",
+        "fDec": "Filter Jahrzehnt"
+      }
+    }
+  ]
+}
