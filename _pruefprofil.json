@@ -5,7 +5,7 @@
   "projekt": "grundrisse-2045",
   "pruefer": {
     "repo": "webpruefer",
-    "fassung": "c97ae0bbc7e1",
+    "fassung": "9f93fd97a1f4",
     "_hinweis": "Die Fassung wird bewusst gehoben, nicht nebenbei. pruefen.sh bricht laut ab, wenn der vorgefundene Kern eine andere traegt."
   },
   "seiten": [
