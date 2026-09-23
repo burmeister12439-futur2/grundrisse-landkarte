@@ -24,10 +24,17 @@ cd ~/Documents/GitHub/grundrisse-2045
 Auf einem neuen Rechner einmalig `./einrichten.sh`. Ist der Kern als Submodul
 eingebunden, genügt dort `git submodule update --init`.
 
-Der Kern wird über `WEBPRUEFER`, `./_pruefer` oder den Nachbarordner
-`../webpruefer` gefunden. Kein fest verdrahteter persönlicher Pfad. Fehlt er
-oder trägt er eine andere Fassung als das Profil erwartet, bricht `pruefen.sh`
-laut ab, mit Rückgabe 2 und der Abhilfe im Klartext.
+Der Kern liegt seit dem 23.09.2026 als Submodul `_pruefer` im Projekt, in der
+Fassung, die das Profil verlangt. Auf einem neuen Rechner genügt
+
+```
+git submodule update --init
+```
+
+Gefunden wird er über `WEBPRUEFER`, `./_pruefer` oder den Nachbarordner
+`../webpruefer`, in dieser Reihenfolge. Kein fest verdrahteter persönlicher
+Pfad. Fehlt er oder trägt er eine andere Fassung als das Profil erwartet,
+bricht `pruefen.sh` laut ab, mit Rückgabe 2 und der Abhilfe im Klartext.
 
 Die Browserprüfung braucht Playwright und läuft dort, wo Playwright liegt:
 

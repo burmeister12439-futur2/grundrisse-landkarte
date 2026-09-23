@@ -1,0 +1,4 @@
+[submodule "_pruefer"]
+	path = _pruefer
+	url = https://github.com/burmeister12439-futur2/webpruefer.git
+	branch = main
