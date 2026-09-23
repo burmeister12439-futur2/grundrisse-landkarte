@@ -1,0 +1,14 @@
+#!/bin/sh
+# Haken vor jedem Push. Installiert mit:
+#   cp _werkzeug/pre-push .git/hooks/pre-push && chmod +x .git/hooks/pre-push
+# Haelt den Push an, wenn die Seitenpruefung Befunde meldet.
+wurzel=$(git rev-parse --show-toplevel) || exit 1
+cd "$wurzel" || exit 1
+python3 _werkzeug/pruefe_seite.py index.html
+if [ $? -ne 0 ]; then
+  echo ""
+  echo "PUSH ANGEHALTEN. Die Seitenpruefung hat Befunde gemeldet, siehe oben."
+  echo "Nichts ist hochgeladen worden. Der Commit bleibt stehen."
+  exit 1
+fi
+exit 0
