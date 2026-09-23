@@ -1,14 +1,26 @@
 #!/bin/sh
 # Haken vor jedem Push. Installiert mit:
 #   cp _werkzeug/pre-push .git/hooks/pre-push && chmod +x .git/hooks/pre-push
-# Haelt den Push an, wenn die Seitenpruefung Befunde meldet.
+#
+# Zuerst die statische Strukturpruefung, danach das Protokoll der
+# Browserpruefung. Beide muessen durch, sonst wird nichts hochgeladen.
 wurzel=$(git rev-parse --show-toplevel) || exit 1
 cd "$wurzel" || exit 1
+
 python3 _werkzeug/pruefe_seite.py index.html
-if [ $? -ne 0 ]; then
+statisch=$?
+
+python3 _werkzeug/pruefe_protokoll.py index.html _werkzeug/browserpruefung.json
+protokoll=$?
+
+if [ $statisch -ne 0 ] || [ $protokoll -ne 0 ]; then
   echo ""
-  echo "PUSH ANGEHALTEN. Die Seitenpruefung hat Befunde gemeldet, siehe oben."
+  echo "PUSH ANGEHALTEN. Siehe die Befunde oben."
   echo "Nichts ist hochgeladen worden. Der Commit bleibt stehen."
+  [ $protokoll -ne 0 ] && echo "Die Browserpruefung laeuft dort, wo Playwright liegt:"
+  [ $protokoll -ne 0 ] && echo "  node _werkzeug/pruefe_browser.js index.html _werkzeug/browserpruefung.json"
   exit 1
 fi
+echo ""
+echo "Beide Pruefungen bestanden. Push laeuft."
 exit 0

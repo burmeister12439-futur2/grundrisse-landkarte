@@ -4,38 +4,70 @@
 
 | Datei | Wofür |
 |---|---|
-| `pruefe_seite.py` | Die Prüfung, die am 22.09.2026 gefehlt hat. Verschachtelung, Sichtbarkeit ohne Klick, Leseblick, tote Sprungmarken, doppelte Kennungen. Rückgabe 0 oder 1. Nur Standardbibliothek, kein Browser. |
-| `pre-push` | Der Haken, der die Prüfung vor jedem Push ausführt und ihn bei Befunden anhält. Installiert nach `.git/hooks/pre-push`. |
+| `pruefe_seite.py` | Die statische Prüfung. Verschachtelung, Sichtbarkeit ohne Klick, Verdrahtung, Vollständigkeit gegen den Sollbestand, Leseblick, tote Sprungmarken, doppelte Kennungen. Kein Browser nötig. |
+| `sollbestand.json` | Wie viele Antwortfelder und Fragenblöcke je Abschnitt stehen müssen, und welche Bedienfelder es geben darf. Jede Seite braucht einen eigenen. |
+| `pruefe_browser.js` | Die Browserprüfung. Konsolenfehler, berechnete Sichtbarkeit, Diagramme, Quellen-Explorer, Sammelleiste, mobile Breite. Braucht Playwright. |
+| `browserpruefung.json` | Das Protokoll der letzten Browserprüfung, mit dem SHA-256 der geprüften Seite. |
+| `pruefe_protokoll.py` | Hält das Protokoll an die Seite. Passt der SHA nicht, ist die Prüfung ungültig. |
+| `gegenproben.py` | Beschädigt die Seite absichtlich und weist nach, dass die Prüfung anschlägt. |
+| `pre-push` | Der Haken. Erst die statische Prüfung, dann das Protokoll. Beides muss durch. |
 
 ## Warum es das gibt
 
 Am 22.09.2026 stand bei der Umschaltung auf die Gliederung A bis I ein
 schließendes `</details>` an der falschen Stelle. Die Fragen zu Abschnitt D
 lagen dadurch in einem zugeklappten Werkstatt-Fenster und waren für jeden
-Leser unsichtbar. Der Fehler stand einen ganzen Tag lang live und ist von
-keiner unserer Prüfungen gefunden worden, sondern von Beate Schulz-Montag am
-23.09.2026 beim Lesen.
+Leser unsichtbar. Der Fehler stand einen Tag live und ist von keiner unserer
+Prüfungen gefunden worden, sondern von Beate Schulz-Montag beim Lesen.
 
-Der Grund, warum keine Prüfung ihn fand: Alle haben gezählt. Die Zahl der
-`<details>` und `</details>` stimmte in jedem Commit, fünf zu fünf. Die Zahl
-der Formularfelder stimmte, sechzehn. Falsch war nicht die Zahl, sondern die
-Position, und Position prüft kein Zähler. Die Zählung hat den Fehler nicht
-übersehen, sie hat ihn zugedeckt.
+Der Grund: Alle Prüfungen haben gezählt. Fünf `<details>` zu fünf
+`</details>`, sechzehn Felder. Die Zahlen stimmten, die Position war falsch.
 
-## Aufruf
+**Der Grundsatz seither: Eine Zählung ist keine Prüfung.** Jede Zahl wird gegen
+einen hinterlegten Sollbestand gehalten, nicht gegen sich selbst.
+
+## Wie geprüft wird
+
+Zwei Schichten, weil keine allein reicht.
+
+**Statisch**, ohne Browser, läuft überall:
 
 ```
 cd ~/Documents/GitHub/grundrisse-2045
 python3 _werkzeug/pruefe_seite.py index.html
 ```
 
-## Gegenprobe
+**Im Browser**, braucht Playwright und läuft deshalb dort, wo Playwright liegt,
+nicht auf dem Rechner:
 
-Das Werkzeug ist gegen den fehlerhaften Stand geprüft worden, Commit
-`750b7eb` vom 23.09.2026, 08:59 Uhr. Es meldet dort alle fünf
-Verschachtelungsfehler, nennt die drei unsichtbaren Elemente samt Fenster und
-zeigt im Leseblick für Abschnitt D „kein Fragenblock, 0 Felder". Genau das,
-was Beate gesehen hat. Gegen den heutigen Stand meldet es BESTANDEN.
+```
+node _werkzeug/pruefe_browser.js index.html _werkzeug/browserpruefung.json
+```
 
-Eine Prüfung, die nur am reparierten Stand grün zeigt, beweist nichts. Erst
-die Gegenprobe am kaputten Stand zeigt, dass sie greift.
+Die Browserprüfung kann damit nicht auf demselben Rechner erzwungen werden.
+Damit sie trotzdem nicht still ausfallen kann, schreibt sie ein Protokoll mit
+dem SHA-256 der geprüften Seite. Der Haken lässt nur durch, was ein Protokoll
+zu genau diesem Stand hat. Jede Änderung an `index.html` macht das Protokoll
+ungültig, und der Push wird angehalten, bis die Browserprüfung neu gelaufen
+ist. Das ist die ehrliche Lösung: kein stilles Überspringen.
+
+## Die Gegenproben
+
+Eine Prüfung, die nur am heilen Stand grün zeigt, beweist nichts.
+
+```
+python3 _werkzeug/gegenproben.py
+```
+
+Fünf absichtlich beschädigte Kopien, jede muss rot werden: kaputte
+Verschachtelung, zwei entfernte Felder, Feld ohne `data-frage`, Feld ohne
+Label, per inline-CSS verstecktes Feld. Ein sechster Fall, das per CSS-Klasse
+versteckte Feld, wird erzeugt und der Browserprüfung übergeben, weil ihn die
+statische Prüfung nicht sehen kann.
+
+## Übertragung auf andere Projekte
+
+Noch nicht geschehen und bewusst so. Erst wenn diese Gegenproben rot und der
+geltende Stand grün sind, wird daraus ein übertragbares Werkzeug. Jede andere
+Seite braucht dann einen eigenen `sollbestand.json`, weil ein Sollbestand
+genau die eine Seite beschreibt, für die er gilt.
