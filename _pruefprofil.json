@@ -5,7 +5,7 @@
   "projekt": "grundrisse-2045",
   "pruefer": {
     "repo": "webpruefer",
-    "fassung": "3c0f758ea524",
+    "fassung": "37969b190a28",
     "_hinweis": "Die Fassung wird bewusst gehoben, nicht nebenbei. pruefen.sh bricht laut ab, wenn der vorgefundene Kern eine andere traegt."
   },
   "seiten": [
@@ -37,6 +37,18 @@
         "fHerk": "Filter Herkunft",
         "fClus": "Filter Cluster",
         "fDec": "Filter Jahrzehnt"
+      },
+      "diagramme": true,
+      "tabelle": {
+        "koerper": "#tbody",
+        "suchfeld": "#q",
+        "_was": "der Quellen-Explorer im Anhang"
+      },
+      "sammelleiste": {
+        "leiste": "#sammeln",
+        "zaehler": "#sammelzahl",
+        "klasse": "an",
+        "zaehlertext": "1 Antwort"
       }
     }
   ]
