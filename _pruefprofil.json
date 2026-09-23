@@ -5,7 +5,7 @@
   "projekt": "grundrisse-2045",
   "pruefer": {
     "repo": "webpruefer",
-    "fassung": "37969b190a28",
+    "fassung": "c97ae0bbc7e1",
     "_hinweis": "Die Fassung wird bewusst gehoben, nicht nebenbei. pruefen.sh bricht laut ab, wenn der vorgefundene Kern eine andere traegt."
   },
   "seiten": [
@@ -49,7 +49,14 @@
         "zaehler": "#sammelzahl",
         "klasse": "an",
         "zaehlertext": "1 Antwort"
-      }
+      },
+      "pflichtsichtbar": [
+        "#q",
+        "#fHerk",
+        "#fClus",
+        "#fDec"
+      ],
+      "_pflichtsichtbar_begruendung": "Die vier Bedienteile der Quellentabelle liegen ausserhalb jedes <details> und sind im Ausgangszustand sichtbar. Eingetragen am 23.09.2026, damit die Gegenproben 8 und 9 des Pruefkerns an dieser Seite ausgefuehrt werden koennen. Ein Bedienablauf mit Knopf und Antwortfeld existiert auf dieser Seite nicht, die Gegenproben 10 und 11 entfallen daher sachlich."
     }
   ]
 }
