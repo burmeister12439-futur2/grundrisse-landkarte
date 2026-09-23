@@ -10,6 +10,7 @@ Projekt gehört.
 |---|---|
 | `../_pruefprofil.json` | Was an dieser Seite geprüft wird und mit welcher Fassung des Kerns. |
 | `../pruefen.sh` | Der Anker. Findet den Kern, prüft seine Fassung, führt die Prüfungen aus. |
+| `../einrichten.sh` | Richtet die Prüfung auf einem neuen Rechner ein: Kern holen, Abhängigkeiten, Haken, erste Prüfung. |
 | `browserpruefung.json` | Das Protokoll der letzten Browserprüfung, mit dem SHA-256 von Seite und Prüfer. |
 | `Archiv/` | Die bisherigen lokalen Prüferdateien. Abgelöst, nicht gelöscht. |
 
@@ -19,6 +20,9 @@ Projekt gehört.
 cd ~/Documents/GitHub/grundrisse-2045
 ./pruefen.sh
 ```
+
+Auf einem neuen Rechner einmalig `./einrichten.sh`. Ist der Kern als Submodul
+eingebunden, genügt dort `git submodule update --init`.
 
 Der Kern wird über `WEBPRUEFER`, `./_pruefer` oder den Nachbarordner
 `../webpruefer` gefunden. Kein fest verdrahteter persönlicher Pfad. Fehlt er
